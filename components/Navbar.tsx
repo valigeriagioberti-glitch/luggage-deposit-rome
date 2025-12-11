@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <a href="/" className="flex-shrink-0 flex items-center gap-3 cursor-pointer">
             <img 
-              src="https://luggagedepositrome.com/wp-content/uploads/2025/09/cropped-Untitled-design-2025-09-11T094640.576.png" 
+              src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
               alt="Luggage Deposit Rome Logo" 
               className="h-10 w-auto object-contain" 
             />
