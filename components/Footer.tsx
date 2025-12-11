@@ -1,5 +1,5 @@
-import React from 'react';
-import { Phone, Mail, MapPin, Briefcase } from 'lucide-react';
+import React, { useState } from 'react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { BUSINESS_INFO } from '../constants';
 import { useLanguage } from '../LanguageContext';
 
@@ -14,7 +14,11 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <Briefcase className="h-8 w-8 text-primary" />
+              <img 
+                src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
+                alt="Luggage Deposit Rome Logo" 
+                className="h-10 w-auto object-contain" 
+              />
               <span className="font-bold text-xl">Luggage Deposit Rome</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">

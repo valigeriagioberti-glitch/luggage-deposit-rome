@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export const Navbar: React.FC = () => {
@@ -24,7 +24,7 @@ export const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           <a href="/" className="flex-shrink-0 flex items-center gap-3 cursor-pointer">
             <img 
-              src="https://luggagedepositrome.com/wp-content/uploads/2025/09/cropped-Untitled-design-2025-09-11T094640.576.png" 
+              src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
               alt="Luggage Deposit Rome Logo" 
               className="h-10 w-auto object-contain" 
             />
@@ -45,10 +45,17 @@ export const Navbar: React.FC = () => {
             {/* Language Switcher */}
             <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-1 text-gray-600 hover:text-primary font-medium text-sm"
+              className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200 hover:shadow-sm group"
+              aria-label={language === 'it' ? "Switch to English" : "Passa all'italiano"}
             >
-              <Globe size={18} />
-              <span className="uppercase">{language}</span>
+              <img 
+                src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
+                alt={language === 'it' ? "Italy Flag" : "UK Flag"}
+                className="w-5 h-auto rounded-sm shadow-sm"
+              />
+              <span className="font-bold text-sm text-gray-700 uppercase group-hover:text-primary transition-colors">
+                {language}
+              </span>
             </button>
 
             <a
@@ -62,10 +69,16 @@ export const Navbar: React.FC = () => {
           <div className="md:hidden flex items-center gap-4">
              <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-1 text-gray-600 hover:text-primary font-medium text-sm"
+              className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200"
             >
-              <Globe size={18} />
-              <span className="uppercase">{language}</span>
+              <img 
+                src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
+                alt={language === 'it' ? "Italy Flag" : "UK Flag"}
+                className="w-5 h-auto rounded-sm"
+              />
+              <span className="font-bold text-sm text-gray-700 uppercase">
+                {language}
+              </span>
             </button>
 
             <button

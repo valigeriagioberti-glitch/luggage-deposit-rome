@@ -20,7 +20,7 @@ export const getTravelAdvice = async (userQuery: string): Promise<string> => {
         - Name: Luggage Deposit Rome
         - Location: V. Gioberti, 42, 00185 Roma RM, Italy (2 minutes walk from Roma Termini).
         - Pricing: €5/day (Cabin Bag), €6/day (Medium Bag), €7/day (Large Bag).
-        - Opening Hours: 08:30 - 23:00 Daily.
+        - Opening Hours: 08:30 - 22:00 Daily.
         - Services: Secure storage, CCTV monitored.
         
         Your goals:

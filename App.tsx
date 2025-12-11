@@ -11,6 +11,7 @@ import { FAQ } from './components/FAQ';
 import { AiAssistant } from './components/AiAssistant';
 import { Footer } from './components/Footer';
 import { LanguageProvider } from './LanguageContext';
+import { BookingProvider } from './BookingContext';
 
 function AppContent() {
   return (
@@ -35,7 +36,9 @@ function AppContent() {
 function App() {
   return (
     <LanguageProvider>
-      <AppContent />
+      <BookingProvider>
+        <AppContent />
+      </BookingProvider>
     </LanguageProvider>
   );
 }

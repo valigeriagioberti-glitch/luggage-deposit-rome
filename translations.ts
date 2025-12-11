@@ -34,7 +34,7 @@ export const translations = {
         distanceValue: "2 minuti a piedi",
         distanceSub: "da Roma Termini",
         hoursLabel: "Orari di apertura",
-        hoursValue: "08:30 - 23:00",
+        hoursValue: "08:30 - 22:00",
         hoursSub: "Aperto tutti i giorni",
         securityLabel: "Sicurezza",
         securityValue: "Sicuro, Videosorvegliato",
@@ -69,21 +69,21 @@ export const translations = {
     },
     pricing: {
       title: "Tariffe fisse convenienti",
-      subtitle: "Paga per bagaglio, al giorno. Nessuno stress orario.",
+      subtitle: "Paga per bagaglio, al giorno. Nessun costo extra.",
       from: "da",
       day: "/giorno",
       choose: "Scegli",
       popular: "Più Richiesto",
       items: [
         {
-          name: "Bagaglio a Mano",
-          price: "€5.00",
-          features: ["Dimensioni standard cabina", "Al giorno", "Sicuro, videosorvegliato", "Cancellazione gratuita"]
-        },
-        {
           name: "Bagaglio Medio",
           price: "€6.00",
           features: ["Valigia media", "Al giorno", "Sicuro, videosorvegliato", "Cancellazione gratuita"]
+        },
+        {
+          name: "Bagaglio a Mano",
+          price: "€5.00",
+          features: ["Dimensioni standard cabina", "Al giorno", "Sicuro, videosorvegliato", "Cancellazione gratuita"]
         },
         {
           name: "Bagaglio Grande",
@@ -94,7 +94,7 @@ export const translations = {
     },
     booking: {
       title: "Assicura il tuo posto online",
-      subtitle: "Prenota in pochi secondi. Paga al tuo arrivo. Cancellazione gratuita."
+      subtitle: "Prenota in pochi secondi. Cancellazione gratuita."
     },
     location: {
       title: "Dove siamo",
@@ -166,7 +166,7 @@ export const translations = {
         },
         {
           q: "Cosa succede se sono in ritardo per il ritiro?",
-          a: "Siamo aperti fino alle 23:00. Se sei in ritardo, contattaci immediatamente via WhatsApp. I ritiri tardivi potrebbero comportare un costo aggiuntivo o il ritiro il giorno successivo."
+          a: "Siamo aperti fino alle 22:00. Se sei in ritardo, contattaci immediatamente via WhatsApp. I ritiri tardivi potrebbero comportare un costo aggiuntivo o il ritiro il giorno successivo."
         },
         {
           q: "Posso cancellare la mia prenotazione?",
@@ -221,7 +221,7 @@ export const translations = {
         distanceValue: "2 minutes walk",
         distanceSub: "from Roma Termini",
         hoursLabel: "Opening Hours",
-        hoursValue: "08:30 - 23:00",
+        hoursValue: "08:30 - 22:00",
         hoursSub: "Open every day",
         securityLabel: "Security",
         securityValue: "Secure, CCTV Monitored",
@@ -256,21 +256,21 @@ export const translations = {
     },
     pricing: {
       title: "Affordable flat rates",
-      subtitle: "Pay per bag, per day. No hourly stress.",
+      subtitle: "Pay per bag, per day. No extra cost.",
       from: "from",
       day: "/day",
       choose: "Choose",
       popular: "Best Value",
       items: [
         {
-          name: "Cabin Bag",
-          price: "€5.00",
-          features: ["Standard cabin size", "Per day", "Secure, CCTV monitored", "Free cancellation"]
-        },
-        {
           name: "Medium Bag",
           price: "€6.00",
           features: ["Medium suitcase", "Per day", "Secure, CCTV monitored", "Free cancellation"]
+        },
+        {
+          name: "Cabin Bag",
+          price: "€5.00",
+          features: ["Standard cabin size", "Per day", "Secure, CCTV monitored", "Free cancellation"]
         },
         {
           name: "Large Bag",
@@ -281,7 +281,7 @@ export const translations = {
     },
     booking: {
       title: "Secure your spot online",
-      subtitle: "Book in seconds. Pay when you arrive. Free cancellation."
+      subtitle: "Book in seconds. Free cancellation."
     },
     location: {
       title: "Where to find us",
@@ -353,7 +353,7 @@ export const translations = {
         },
         {
           q: "What happens if I'm late to pick up?",
-          a: "We are open until 23:00. If you are running late, please contact us immediately via WhatsApp. Late pickups may incur an additional fee or next-day retrieval."
+          a: "We are open until 22:00. If you are running late, please contact us immediately via WhatsApp. Late pickups may incur an additional fee or next-day retrieval."
         },
         {
           q: "Can I cancel my booking?",

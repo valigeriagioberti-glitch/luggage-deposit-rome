@@ -1,9 +1,11 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import { useBooking } from '../BookingContext';
 
 export const Pricing: React.FC = () => {
   const { t } = useLanguage();
+  const { expandIfMobile } = useBooking();
 
   return (
     <section id="pricing" className="py-20 bg-white">
@@ -51,6 +53,7 @@ export const Pricing: React.FC = () => {
 
                 <a
                   href="#booking"
+                  onClick={expandIfMobile}
                   className={`block w-full py-3 px-6 text-center rounded-xl font-bold transition-all ${
                     isPopular 
                       ? 'bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/30' 
