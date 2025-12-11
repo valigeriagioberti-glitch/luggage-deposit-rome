@@ -44,7 +44,7 @@ export const translations = {
       }
     },
     stats: {
-      bags: "1.000+ bagagli custoditi",
+      bags: "10.000+ bagagli custoditi",
       distance: "2 min da Roma Termini",
       rating: "Voto: 4.8 / 5 su Google",
       support: "Assistenza: WhatsApp e in negozio"
@@ -231,7 +231,7 @@ export const translations = {
       }
     },
     stats: {
-      bags: "1,000+ bags stored safely",
+      bags: "10,000+ bags stored safely",
       distance: "2 mins from Roma Termini",
       rating: "Rating: 4.8 / 5 on Google",
       support: "Support: WhatsApp & in-store"

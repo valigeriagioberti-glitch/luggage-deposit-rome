@@ -22,13 +22,14 @@ export const Navbar: React.FC = () => {
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <a href="/" className="flex-shrink-0 flex items-center gap-3 cursor-pointer">
+          {/* Logo Section - optimized for mobile space */}
+          <a href="/" className="flex-shrink-0 flex items-center gap-2 md:gap-3 cursor-pointer overflow-hidden max-w-[60%] sm:max-w-none">
             <img 
               src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
               alt="Luggage Deposit Rome Logo" 
-              className="h-10 w-auto object-contain" 
+              className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
-            <span className="font-bold text-lg text-dark tracking-tight">Luggage Deposit Rome</span>
+            <span className="font-bold text-base md:text-lg text-dark tracking-tight truncate">Luggage Deposit Rome</span>
           </a>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -42,7 +43,7 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
             
-            {/* Language Switcher */}
+            {/* Desktop Language Switcher */}
             <button 
               onClick={toggleLanguage}
               className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200 hover:shadow-sm group"
@@ -66,15 +67,15 @@ export const Navbar: React.FC = () => {
             </a>
           </div>
 
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-3 flex-shrink-0">
              <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200"
+              className="flex-shrink-0 flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200"
             >
               <img 
                 src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
                 alt={language === 'it' ? "Italy Flag" : "UK Flag"}
-                className="w-5 h-auto rounded-sm"
+                className="w-5 h-auto rounded-sm flex-shrink-0"
               />
               <span className="font-bold text-sm text-gray-700 uppercase">
                 {language}
@@ -83,7 +84,7 @@ export const Navbar: React.FC = () => {
 
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-dark focus:outline-none p-2"
+              className="text-gray-600 hover:text-dark focus:outline-none p-2 flex-shrink-0"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
