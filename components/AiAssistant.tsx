@@ -181,9 +181,6 @@ export const AiAssistant: React.FC = () => {
               <Send size={16} />
             </button>
           </div>
-          {!process.env.API_KEY && (
-            <p className="text-[10px] text-red-500 mt-2 text-center">{t.ai.apiMissing}</p>
-          )}
         </div>
       </div>
 

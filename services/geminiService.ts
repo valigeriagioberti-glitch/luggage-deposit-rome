@@ -4,10 +4,6 @@ const apiKey = process.env.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
 
 export const getTravelAdvice = async (userQuery: string): Promise<string> => {
-  if (!apiKey) {
-    return "I'm sorry, I cannot answer right now as my brain connection (API Key) is missing.";
-  }
-
   try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-pro-preview',

@@ -17,14 +17,15 @@ export const Booking: React.FC = () => {
     return () => window.removeEventListener('keydown', handleEsc);
   }, [setIsFullScreen]);
 
+  // Determine classes to avoid 'relative' vs 'fixed' conflict
+  const sectionClasses = isFullScreen
+    ? 'fixed inset-0 z-[9999] bg-white h-[100dvh] w-screen overflow-hidden'
+    : 'relative py-20 bg-primary-light z-0 transition-all duration-300';
+
   return (
     <section 
       id="booking" 
-      className={`transition-all duration-300 relative ${
-        isFullScreen 
-          ? 'fixed inset-0 z-[100] bg-white h-[100dvh] w-screen overflow-hidden' 
-          : 'py-20 bg-primary-light z-0'
-      }`}
+      className={sectionClasses}
     >
       <div className={`h-full flex flex-col ${isFullScreen ? 'w-full p-0' : 'max-w-5xl mx-auto px-4 sm:px-6 lg:px-8'}`}>
         
@@ -44,8 +45,11 @@ export const Booking: React.FC = () => {
         }`}>
            
            <button 
-              onClick={toggleFullScreen}
-              className={`absolute right-4 z-20 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg border border-gray-200 hover:bg-white hover:scale-105 hover:text-primary transition-all text-gray-700 ${
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleFullScreen();
+              }}
+              className={`absolute right-4 z-[100] bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg border border-gray-200 hover:bg-white hover:scale-105 hover:text-primary transition-all text-gray-700 ${
                 isFullScreen ? 'top-4' : 'top-4'
               }`}
               title={isFullScreen ? "Close Full Screen" : "Open Full Screen"}
