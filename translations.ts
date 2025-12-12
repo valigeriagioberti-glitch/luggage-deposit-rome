@@ -95,11 +95,14 @@ export const translations = {
     },
     booking: {
       title: "Assicura il tuo posto online",
-      subtitle: "Prenota in pochi secondi. Cancellazione gratuita."
+      subtitle: "Prenota in pochi secondi. Cancellazione gratuita.",
+      loadForm: "Avvia Prenotazione",
+      loadHint: "Clicca per avviare la procedura sicura"
     },
     location: {
       title: "Dove siamo",
       subtitle: "Ci troviamo in Via Gioberti 42, a soli 2 minuti dalla stazione Roma Termini.",
+      loadMap: "Carica Mappa Interattiva",
       contactCard: {
         title: "Contattaci",
         addressLabel: "Indirizzo",
@@ -287,11 +290,14 @@ export const translations = {
     },
     booking: {
       title: "Secure your spot online",
-      subtitle: "Book in seconds. Free cancellation."
+      subtitle: "Book in seconds. Free cancellation.",
+      loadForm: "Start Booking",
+      loadHint: "Click to open the secure booking form"
     },
     location: {
       title: "Where to find us",
       subtitle: "We are located at V. Gioberti 42, just 2 minutes from Roma Termini.",
+      loadMap: "Load Interactive Map",
       contactCard: {
         title: "Contact Us",
         addressLabel: "Address",

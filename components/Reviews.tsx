@@ -81,6 +81,7 @@ export const Reviews: React.FC = () => {
                     <img 
                       src={getAvatarUrl(review.author)} 
                       alt={review.author} 
+                      loading="lazy"
                       className="w-10 h-10 rounded-full mr-3 shadow-sm"
                     />
                     <div>
@@ -90,6 +91,7 @@ export const Reviews: React.FC = () => {
                     <img 
                       src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" 
                       alt="Google" 
+                      loading="lazy"
                       className="w-5 h-5 ml-auto opacity-80" 
                     />
                   </div>

@@ -1,10 +1,12 @@
-import React from 'react';
-import { MapPin, Navigation } from 'lucide-react';
+import React, { useState } from 'react';
+import { MapPin, Navigation, Map as MapIcon } from 'lucide-react';
 import { GOOGLE_MAPS_EMBED_URL, GOOGLE_MAPS_PROFILE_URL, BUSINESS_INFO } from '../constants';
 import { useLanguage } from '../LanguageContext';
 
 export const Location: React.FC = () => {
   const { t } = useLanguage();
+  const [mapLoaded, setMapLoaded] = useState(false);
+
   return (
     <section id="location" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,20 +48,32 @@ export const Location: React.FC = () => {
              </a>
           </div>
 
-          {/* Map Iframe */}
-          {/* Mobile: h-[450px] (Tall), Desktop: h-[350px] (Compact) */}
+          {/* Map Iframe Facade */}
           <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-lg bg-gray-100 relative h-[450px] lg:h-[350px]">
-            <iframe 
-              src={GOOGLE_MAPS_EMBED_URL}
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={true} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Luggage Deposit Rome Map"
-              className="absolute inset-0 w-full h-full"
-            ></iframe>
+            {mapLoaded ? (
+              <iframe 
+                src={GOOGLE_MAPS_EMBED_URL}
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Luggage Deposit Rome Map"
+                className="absolute inset-0 w-full h-full fade-in"
+              ></iframe>
+            ) : (
+              <div className="absolute inset-0 w-full h-full flex flex-col items-center justify-center bg-gray-100 text-center p-6 space-y-4">
+                 <MapIcon className="w-12 h-12 text-gray-400" />
+                 <h3 className="text-lg font-bold text-gray-600">{t.location.title}</h3>
+                 <button 
+                   onClick={() => setMapLoaded(true)}
+                   className="bg-dark text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors shadow-md"
+                 >
+                   {t.location.loadMap || "Load Interactive Map"}
+                 </button>
+              </div>
+            )}
           </div>
         </div>
       </div>

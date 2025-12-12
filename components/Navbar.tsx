@@ -27,6 +27,8 @@ export const Navbar: React.FC = () => {
             <img 
               src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
               alt="Luggage Deposit Rome Logo" 
+              width="40"
+              height="40"
               className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
             <span className="font-bold text-base md:text-lg text-dark tracking-tight truncate">Luggage Deposit Rome</span>
@@ -52,6 +54,8 @@ export const Navbar: React.FC = () => {
               <img 
                 src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
                 alt={language === 'it' ? "Italy Flag" : "UK Flag"}
+                width="20"
+                height="15"
                 className="w-5 h-auto rounded-sm shadow-sm"
               />
               <span className="font-bold text-sm text-gray-700 uppercase group-hover:text-primary transition-colors">
@@ -75,6 +79,8 @@ export const Navbar: React.FC = () => {
               <img 
                 src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
                 alt={language === 'it' ? "Italy Flag" : "UK Flag"}
+                width="20"
+                height="15"
                 className="w-5 h-auto rounded-sm flex-shrink-0"
               />
               <span className="font-bold text-sm text-gray-700 uppercase">
