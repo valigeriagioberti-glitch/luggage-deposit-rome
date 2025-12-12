@@ -17,7 +17,7 @@ export const Pricing: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {t.pricing.items.map((option: any, index: number) => {
-            const isPopular = index === 1; // Middle item is popular
+            const isPopular = option.popular === true; 
             return (
               <div 
                 key={index} 

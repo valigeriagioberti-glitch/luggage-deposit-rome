@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { BUSINESS_INFO } from '../constants';
 import { useLanguage } from '../LanguageContext';
+import { useBooking } from '../BookingContext';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
+  const { expandIfMobile } = useBooking();
 
   return (
     <footer className="bg-dark text-white pt-16 pb-8">
@@ -47,7 +49,13 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <h4 className="font-bold text-lg mb-4">{t.footer.linksTitle}</h4>
             <div className="flex flex-col space-y-2 text-gray-400">
-               <a href="#booking" className="hover:text-primary transition-colors">{t.nav.bookNow}</a>
+               <a 
+                 href="#booking" 
+                 onClick={expandIfMobile}
+                 className="hover:text-primary transition-colors cursor-pointer"
+               >
+                 {t.nav.bookNow}
+               </a>
                <a href="#how-it-works" className="hover:text-primary transition-colors">{t.nav.howItWorks}</a>
                <a href="#pricing" className="hover:text-primary transition-colors">{t.nav.pricing}</a>
                <a href="#location" className="hover:text-primary transition-colors">{t.footer.findUs}</a>

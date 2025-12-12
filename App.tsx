@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
@@ -9,7 +8,7 @@ import { Booking } from './components/Booking';
 import { Location } from './components/Location';
 import { Reviews } from './components/Reviews';
 import { FAQ } from './components/FAQ';
-import { WhatsAppButton } from './components/WhatsAppButton';
+import { AiAssistant } from './components/AiAssistant';
 import { Footer } from './components/Footer';
 import { LanguageProvider } from './LanguageContext';
 import { BookingProvider } from './BookingContext';
@@ -29,7 +28,7 @@ function AppContent() {
         <FAQ />
       </main>
       <Footer />
-      <WhatsAppButton />
+      <AiAssistant />
     </div>
   );
 }

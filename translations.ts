@@ -76,14 +76,15 @@ export const translations = {
       popular: "Più Richiesto",
       items: [
         {
+          name: "Bagaglio a Mano",
+          price: "€5.00",
+          popular: true,
+          features: ["Dimensioni standard cabina", "Al giorno", "Sicuro, videosorvegliato", "Cancellazione gratuita"]
+        },
+        {
           name: "Bagaglio Medio",
           price: "€6.00",
           features: ["Valigia media", "Al giorno", "Sicuro, videosorvegliato", "Cancellazione gratuita"]
-        },
-        {
-          name: "Bagaglio a Mano",
-          price: "€5.00",
-          features: ["Dimensioni standard cabina", "Al giorno", "Sicuro, videosorvegliato", "Cancellazione gratuita"]
         },
         {
           name: "Bagaglio Grande",
@@ -186,7 +187,11 @@ export const translations = {
     ai: {
       initialMessage: "Ciao! Sono il tuo Concierge Romano. Chiedimi del nostro deposito bagagli o consigli di viaggio vicino a Termini!",
       placeholder: "Chiedi informazioni...",
-      apiMissing: "API Key mancante. Chat inattiva."
+      apiMissing: "API Key mancante. Chat inattiva.",
+      fallback: "Hai bisogno di parlare con una persona?",
+      whatsapp: "Chat su WhatsApp",
+      call: "Chiamaci",
+      status: "Assistente IA"
     }
   },
   en: {
@@ -263,14 +268,15 @@ export const translations = {
       popular: "Best Value",
       items: [
         {
+          name: "Cabin Bag",
+          price: "€5.00",
+          popular: true,
+          features: ["Standard cabin size", "Per day", "Secure, CCTV monitored", "Free cancellation"]
+        },
+        {
           name: "Medium Bag",
           price: "€6.00",
           features: ["Medium suitcase", "Per day", "Secure, CCTV monitored", "Free cancellation"]
-        },
-        {
-          name: "Cabin Bag",
-          price: "€5.00",
-          features: ["Standard cabin size", "Per day", "Secure, CCTV monitored", "Free cancellation"]
         },
         {
           name: "Large Bag",
@@ -373,7 +379,11 @@ export const translations = {
     ai: {
       initialMessage: "Ciao! I'm your Roman Concierge. Ask me about our luggage service or for quick travel tips near Termini!",
       placeholder: "Ask about storage or Rome...",
-      apiMissing: "API Key missing. Chat inactive."
+      apiMissing: "API Key missing. Chat inactive.",
+      fallback: "Need to speak to a human?",
+      whatsapp: "Chat on WhatsApp",
+      call: "Call Us",
+      status: "AI Assistant"
     }
   }
 };
