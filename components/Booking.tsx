@@ -25,8 +25,7 @@ export const Booking: React.FC = () => {
 
   const loadForm = () => {
     setIsIframeLoaded(true);
-    // If not full screen, maybe we don't force full screen, but let the user decide.
-    // However, if they expand, we definitely load the form.
+    setIsFullScreen(true);
   };
 
   const handleToggle = (e: React.MouseEvent) => {
