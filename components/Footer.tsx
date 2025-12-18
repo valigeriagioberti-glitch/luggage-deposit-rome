@@ -52,8 +52,6 @@ export const Footer: React.FC = () => {
             <div className="flex flex-col space-y-2 text-gray-400">
                <a 
                  href={BOOKING_URL}
-                 target="_blank"
-                 rel="noopener noreferrer"
                  className="hover:text-primary transition-colors cursor-pointer"
                >
                  {t.nav.bookNow}

@@ -36,8 +36,6 @@ export const Hero: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-10">
               <a 
                 href={BOOKING_URL} 
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-hover transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
               >
                 {t.hero.ctaBook}
@@ -143,8 +141,6 @@ export const Hero: React.FC = () => {
                   <p className="text-xs text-center text-gray-400 mb-3">{t.hero.card.bookNote}</p>
                   <a 
                     href={BOOKING_URL} 
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="block w-full bg-white text-dark text-center py-3 rounded-xl font-bold hover:bg-gray-100 transition-colors"
                   >
                     {t.hero.card.reserveBtn}

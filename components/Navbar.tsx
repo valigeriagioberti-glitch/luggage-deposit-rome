@@ -69,8 +69,6 @@ export const Navbar: React.FC = () => {
 
             <a
               href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="bg-primary text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-primary-hover transition-all shadow-md hover:shadow-lg"
             >
               {t.nav.bookNow}
@@ -120,8 +118,6 @@ export const Navbar: React.FC = () => {
             ))}
             <a
               href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="block w-full text-center mt-4 bg-primary text-white px-3 py-3 rounded-md font-bold text-base shadow-sm"
             >

@@ -52,8 +52,6 @@ export const Pricing: React.FC = () => {
 
                 <a
                   href={BOOKING_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={`block w-full py-3 px-6 text-center rounded-xl font-bold transition-all ${
                     isPopular 
                       ? 'bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/30' 
