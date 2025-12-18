@@ -32,9 +32,9 @@ export const Navbar: React.FC = () => {
               height="40"
               className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
-            <div className="flex flex-col leading-[0.9] mt-0.5">
-              <span className="font-extrabold text-sm md:text-base text-dark tracking-tighter uppercase">LUGGAGE DEPOSIT</span>
-              <span className="font-bold text-[10px] md:text-xs text-red-800 tracking-[0.25em] uppercase">ROME</span>
+            <div className="flex flex-col mt-0.5">
+              <span className="font-[800] text-[18px] leading-[18px] text-dark tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
+              <span className="font-[700] text-[10px] leading-[10px] text-red-800 tracking-[0.25em] uppercase font-sans">ROME</span>
             </div>
           </a>
           
@@ -49,22 +49,19 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
             
-            {/* Desktop Language Switcher */}
+            {/* Desktop Language Switcher - Flag Only */}
             <button 
               onClick={toggleLanguage}
-              className="flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200 hover:shadow-sm group"
+              className="flex items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 w-10 h-10 rounded-full transition-all duration-200 hover:shadow-sm"
               aria-label={language === 'it' ? "Switch to English" : "Passa all'italiano"}
             >
               <img 
                 src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
                 alt={language === 'it' ? "Italy Flag" : "UK Flag"}
-                width="20"
-                height="15"
-                className="w-5 h-auto rounded-sm shadow-sm"
+                width="24"
+                height="16"
+                className="w-6 h-auto rounded-sm shadow-sm"
               />
-              <span className="font-bold text-sm text-gray-700 uppercase group-hover:text-primary transition-colors">
-                {language}
-              </span>
             </button>
 
             <a
@@ -76,20 +73,18 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="md:hidden flex items-center gap-3 flex-shrink-0">
+             {/* Mobile Language Switcher - Flag Only */}
              <button 
               onClick={toggleLanguage}
-              className="flex-shrink-0 flex items-center gap-2 bg-gray-50 hover:bg-gray-100 border border-gray-200 px-3 py-1.5 rounded-full transition-all duration-200"
+              className="flex-shrink-0 flex items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 w-10 h-10 rounded-full transition-all duration-200"
             >
               <img 
                 src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
                 alt={language === 'it' ? "Italy Flag" : "UK Flag"}
-                width="20"
-                height="15"
-                className="w-5 h-auto rounded-sm flex-shrink-0"
+                width="24"
+                height="16"
+                className="w-6 h-auto rounded-sm flex-shrink-0"
               />
-              <span className="font-bold text-sm text-gray-700 uppercase">
-                {language}
-              </span>
             </button>
 
             <button
