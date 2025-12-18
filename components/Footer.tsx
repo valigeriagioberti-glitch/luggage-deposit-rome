@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { BUSINESS_INFO } from '../constants';
+import { BUSINESS_INFO, BOOKING_URL } from '../constants';
 import { useLanguage } from '../LanguageContext';
-import { useBooking } from '../BookingContext';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
-  const { expandIfMobile } = useBooking();
 
   return (
     <footer className="bg-dark text-white pt-16 pb-8">
@@ -19,9 +17,12 @@ export const Footer: React.FC = () => {
               <img 
                 src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
                 alt="Luggage Deposit Rome Logo" 
-                className="h-10 w-auto object-contain" 
+                className="h-10 w-auto object-contain brightness-0 invert" 
               />
-              <span className="font-bold text-xl">Luggage Deposit Rome</span>
+              <div className="flex flex-col leading-[0.9] mt-0.5">
+                <span className="font-extrabold text-lg tracking-tighter uppercase">LUGGAGE DEPOSIT</span>
+                <span className="font-bold text-xs text-red-600 tracking-[0.3em] uppercase">ROME</span>
+              </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               {t.footer.desc}
@@ -50,8 +51,9 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-lg mb-4">{t.footer.linksTitle}</h4>
             <div className="flex flex-col space-y-2 text-gray-400">
                <a 
-                 href="#booking" 
-                 onClick={expandIfMobile}
+                 href={BOOKING_URL}
+                 target="_blank"
+                 rel="noopener noreferrer"
                  className="hover:text-primary transition-colors cursor-pointer"
                >
                  {t.nav.bookNow}

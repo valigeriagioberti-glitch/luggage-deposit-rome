@@ -1,19 +1,22 @@
-
 import React from 'react';
+import { BUSINESS_INFO } from '../constants';
 
 export const WhatsAppButton: React.FC = () => {
   return (
     <a
-      href="https://wa.me/393664530323"
+      href={`https://wa.me/${BUSINESS_INFO.whatsapp}`}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20bd5a] transition-all hover:scale-110 flex items-center justify-center"
+      className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#20bd5a] transition-all hover:scale-110 flex items-center justify-center group"
       aria-label="Contact us on WhatsApp"
     >
+      <div className="absolute right-full mr-3 bg-white text-dark px-3 py-1.5 rounded-lg text-sm font-bold shadow-md opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap hidden sm:block">
+        Chat with us!
+      </div>
       <svg
         viewBox="0 0 24 24"
-        width="28"
-        height="28"
+        width="32"
+        height="32"
         stroke="currentColor"
         strokeWidth="2"
         fill="none"

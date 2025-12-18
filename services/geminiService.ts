@@ -1,10 +1,11 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.API_KEY || '';
-const ai = new GoogleGenAI({ apiKey });
+// Always use new GoogleGenAI({ apiKey: process.env.API_KEY }) to initialize the client
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const getTravelAdvice = async (userQuery: string): Promise<string> => {
   try {
+    // Correctly call generateContent with the model name and contents
     const response = await ai.models.generateContent({
       model: 'gemini-3-pro-preview',
       contents: userQuery,
@@ -42,6 +43,7 @@ export const getTravelAdvice = async (userQuery: string): Promise<string> => {
       },
     });
     
+    // Directly access the text property from GenerateContentResponse
     return response.text || "I'm having trouble thinking of an answer right now. [OFFER_HUMAN_HELP]";
   } catch (error) {
     console.error("Error calling Gemini API:", error);

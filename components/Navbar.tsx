@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
+import { BOOKING_URL } from '../constants';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,8 +23,8 @@ export const Navbar: React.FC = () => {
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo Section - optimized for mobile space */}
-          <a href="/" className="flex-shrink-0 flex items-center gap-2 md:gap-3 cursor-pointer overflow-hidden max-w-[60%] sm:max-w-none">
+          {/* Logo Section */}
+          <a href="#" className="flex-shrink-0 flex items-center gap-2 md:gap-3 cursor-pointer overflow-hidden">
             <img 
               src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
               alt="Luggage Deposit Rome Logo" 
@@ -31,7 +32,10 @@ export const Navbar: React.FC = () => {
               height="40"
               className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
-            <span className="font-bold text-base md:text-lg text-dark tracking-tight truncate">Luggage Deposit Rome</span>
+            <div className="flex flex-col leading-[0.9] mt-0.5">
+              <span className="font-extrabold text-sm md:text-base text-dark tracking-tighter uppercase">LUGGAGE DEPOSIT</span>
+              <span className="font-bold text-[10px] md:text-xs text-red-800 tracking-[0.25em] uppercase">ROME</span>
+            </div>
           </a>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -64,7 +68,9 @@ export const Navbar: React.FC = () => {
             </button>
 
             <a
-              href="#booking"
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-white px-5 py-2 rounded-lg font-semibold text-sm hover:bg-primary-hover transition-all shadow-md hover:shadow-lg"
             >
               {t.nav.bookNow}
@@ -113,7 +119,9 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
             <a
-              href="#booking"
+              href={BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
               className="block w-full text-center mt-4 bg-primary text-white px-3 py-3 rounded-md font-bold text-base shadow-sm"
             >
