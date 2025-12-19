@@ -18,7 +18,7 @@ export const Reviews: React.FC = () => {
   };
 
   const getAvatarUrl = (name: string) => {
-    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=16a34a&color=fff`;
+    return `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=16a34a&color=fff&size=80&format=webp`;
   };
 
   return (
@@ -80,6 +80,8 @@ export const Reviews: React.FC = () => {
                     <img 
                       src={getAvatarUrl(review.author)} 
                       alt={review.author} 
+                      width="40"
+                      height="40"
                       loading="lazy"
                       className="w-10 h-10 rounded-full mr-3 shadow-sm"
                     />
@@ -90,6 +92,8 @@ export const Reviews: React.FC = () => {
                     <img 
                       src="https://upload.wikimedia.org/wikipedia/commons/3/39/Google_Maps_icon_%282015-2020%29.svg" 
                       alt="Google Maps" 
+                      width="24"
+                      height="24"
                       loading="lazy"
                       className="w-6 h-6 ml-auto object-contain" 
                     />

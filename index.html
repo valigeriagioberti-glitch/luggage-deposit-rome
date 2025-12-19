@@ -6,13 +6,20 @@
     <meta name="theme-color" content="#16A34A" />
     <title>Luggage Deposit Rome - Storage near Roma Termini</title>
     
-    <!-- Preload Critical Assets -->
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614">
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://upload.wikimedia.org">
     
-    <!-- Added 800 weight to Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Preload Critical Assets with High Priority -->
+    <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" fetchpriority="high">
+    
+    <!-- Optimized Font Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    </noscript>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -47,6 +54,11 @@
       }
     </script>
     <style>
+      /* Prevent CLS for H1 and text */
+      body {
+        font-family: 'Inter', sans-serif;
+        font-display: swap;
+      }
       html {
         scroll-behavior: smooth;
       }
@@ -55,6 +67,10 @@
       }
       details > summary::-webkit-details-marker {
         display: none;
+      }
+      /* Reduce TBT by avoiding heavy transitions on load */
+      .no-transition * {
+        transition: none !important;
       }
     </style>
   <script type="importmap">

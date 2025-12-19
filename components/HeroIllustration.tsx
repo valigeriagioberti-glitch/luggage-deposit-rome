@@ -8,6 +8,8 @@ export const HeroIllustration: React.FC<HeroIllustrationProps> = ({ className = 
   return (
     <svg
       viewBox="0 0 500 500"
+      width="500"
+      height="500"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
       aria-hidden="true"

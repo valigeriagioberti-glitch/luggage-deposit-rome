@@ -15,8 +15,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-2">
               <img 
-                src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614" 
+                src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" 
                 alt="Luggage Deposit Rome Logo" 
+                width="40"
+                height="40"
+                loading="lazy"
                 className="h-10 w-auto object-contain brightness-0 invert" 
               />
               <div className="flex flex-col">
