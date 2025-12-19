@@ -7,10 +7,6 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, setLanguage } = useLanguage();
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'en' ? 'it' : 'en');
-  };
-
   const navLinks = [
     { name: t.nav.howItWorks, href: '#how-it-works' },
     { name: t.nav.pricing, href: '#pricing' },
@@ -20,21 +16,27 @@ export const Navbar: React.FC = () => {
   ];
 
   const LanguageToggle = () => (
-    <div className="relative group">
+    <div className="flex items-center p-1 bg-gray-100 rounded-full border border-gray-200 shadow-inner">
       <button
-        onClick={toggleLanguage}
-        aria-label={language === 'en' ? 'Switch language to Italian' : 'Cambia lingua in inglese'}
-        className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 px-4 h-9 rounded-full border border-gray-200 shadow-sm transition-all duration-200 active:scale-95 min-w-[52px]"
+        onClick={() => setLanguage('en')}
+        className={`px-3 py-1 text-[11px] font-bold rounded-full transition-all duration-200 ${
+          language === 'en'
+            ? 'bg-white text-dark shadow-sm'
+            : 'text-gray-500 hover:text-dark'
+        }`}
       >
-        <span className="text-[12px] font-extrabold text-dark tracking-wider uppercase">
-          {language}
-        </span>
+        GB
       </button>
-      
-      {/* Tooltip Hint - Desktop Only */}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-dark text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50 shadow-lg hidden md:block">
-        {language === 'en' ? 'Switch to IT' : 'Passa a EN'}
-      </div>
+      <button
+        onClick={() => setLanguage('it')}
+        className={`px-3 py-1 text-[11px] font-bold rounded-full transition-all duration-200 ${
+          language === 'it'
+            ? 'bg-white text-dark shadow-sm'
+            : 'text-gray-500 hover:text-dark'
+        }`}
+      >
+        IT
+      </button>
     </div>
   );
 
