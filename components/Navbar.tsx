@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-16 gap-4">
           {/* Logo Section */}
           <a href="#" className="flex-shrink-0 flex items-center gap-2 md:gap-3 cursor-pointer overflow-hidden">
             <img 
@@ -60,7 +60,7 @@ export const Navbar: React.FC = () => {
               className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
             <div className="flex flex-col">
-              <span className="font-[800] text-[16px] leading-[16px] text-dark tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
+              <span className="font-[800] text-[14px] md:text-[16px] leading-[14px] md:leading-[16px] text-dark tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
               <span className="font-[700] text-[10px] leading-[10px] text-red-800 tracking-[0.25em] uppercase font-sans">ROME</span>
             </div>
           </a>
