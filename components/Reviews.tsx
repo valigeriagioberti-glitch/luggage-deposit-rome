@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
@@ -89,10 +88,10 @@ export const Reviews: React.FC = () => {
                       <p className="text-xs text-gray-400">{review.date}</p>
                     </div>
                     <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" 
-                      alt="Google" 
+                      src="https://upload.wikimedia.org/wikipedia/commons/3/39/Google_Maps_icon_%282015-2020%29.svg" 
+                      alt="Google Maps" 
                       loading="lazy"
-                      className="w-5 h-5 ml-auto opacity-80" 
+                      className="w-6 h-6 ml-auto object-contain" 
                     />
                   </div>
                   

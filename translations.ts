@@ -1,4 +1,3 @@
-
 import { Language } from './types';
 
 export const translations = {
@@ -268,7 +267,7 @@ export const translations = {
       from: "from",
       day: "/day",
       choose: "Choose",
-      popular: "Best Value",
+      popular: "Most Popular",
       items: [
         {
           name: "Cabin Bag",

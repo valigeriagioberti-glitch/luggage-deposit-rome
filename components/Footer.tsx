@@ -19,9 +19,9 @@ export const Footer: React.FC = () => {
                 alt="Luggage Deposit Rome Logo" 
                 className="h-10 w-auto object-contain brightness-0 invert" 
               />
-              <div className="flex flex-col mt-0.5">
-                <span className="font-[800] text-[18px] leading-[18px] text-white tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
-                <span className="font-[700] text-[10px] leading-[10px] text-red-600 tracking-[0.3em] uppercase font-sans">ROME</span>
+              <div className="flex flex-col">
+                <span className="font-[800] text-[16px] leading-[16px] text-white tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
+                <span className="font-[700] text-[10px] leading-[10px] text-red-600 tracking-[0.25em] uppercase font-sans">ROME</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">

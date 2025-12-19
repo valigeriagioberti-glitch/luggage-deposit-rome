@@ -7,8 +7,8 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, setLanguage } = useLanguage();
 
-  const toggleLanguage = () => {
-    setLanguage(language === 'it' ? 'en' : 'it');
+  const toggleLanguage = (lang: 'en' | 'it') => {
+    setLanguage(lang);
   };
 
   const navLinks = [
@@ -18,6 +18,31 @@ export const Navbar: React.FC = () => {
     { name: t.nav.location, href: '#location' },
     { name: t.nav.faq, href: '#faq' },
   ];
+
+  const LanguageToggle = () => (
+    <div className="flex items-center bg-gray-100 p-1 rounded-full border border-gray-200 shadow-inner w-24 h-9">
+      <button
+        onClick={() => toggleLanguage('en')}
+        className={`flex-1 h-full flex items-center justify-center rounded-full text-[11px] font-extrabold transition-all duration-200 ${
+          language === 'en' 
+            ? 'bg-white text-dark shadow-sm ring-1 ring-black/5' 
+            : 'text-gray-400 hover:text-gray-600'
+        }`}
+      >
+        EN
+      </button>
+      <button
+        onClick={() => toggleLanguage('it')}
+        className={`flex-1 h-full flex items-center justify-center rounded-full text-[11px] font-extrabold transition-all duration-200 ${
+          language === 'it' 
+            ? 'bg-white text-dark shadow-sm ring-1 ring-black/5' 
+            : 'text-gray-400 hover:text-gray-600'
+        }`}
+      >
+        IT
+      </button>
+    </div>
+  );
 
   return (
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm">
@@ -32,8 +57,8 @@ export const Navbar: React.FC = () => {
               height="40"
               className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
-            <div className="flex flex-col mt-0.5">
-              <span className="font-[800] text-[18px] leading-[18px] text-dark tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
+            <div className="flex flex-col">
+              <span className="font-[800] text-[16px] leading-[16px] text-dark tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
               <span className="font-[700] text-[10px] leading-[10px] text-red-800 tracking-[0.25em] uppercase font-sans">ROME</span>
             </div>
           </a>
@@ -49,20 +74,8 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
             
-            {/* Desktop Language Switcher - Flag Only */}
-            <button 
-              onClick={toggleLanguage}
-              className="flex items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 w-10 h-10 rounded-full transition-all duration-200 hover:shadow-sm"
-              aria-label={language === 'it' ? "Switch to English" : "Passa all'italiano"}
-            >
-              <img 
-                src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
-                alt={language === 'it' ? "Italy Flag" : "UK Flag"}
-                width="24"
-                height="16"
-                className="w-6 h-auto rounded-sm shadow-sm"
-              />
-            </button>
+            {/* Desktop Language Switcher */}
+            <LanguageToggle />
 
             <a
               href={BOOKING_URL}
@@ -73,19 +86,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="md:hidden flex items-center gap-3 flex-shrink-0">
-             {/* Mobile Language Switcher - Flag Only */}
-             <button 
-              onClick={toggleLanguage}
-              className="flex-shrink-0 flex items-center justify-center bg-gray-50 hover:bg-gray-100 border border-gray-200 w-10 h-10 rounded-full transition-all duration-200"
-            >
-              <img 
-                src={language === 'it' ? "https://flagcdn.com/w40/it.png" : "https://flagcdn.com/w40/gb.png"}
-                alt={language === 'it' ? "Italy Flag" : "UK Flag"}
-                width="24"
-                height="16"
-                className="w-6 h-auto rounded-sm flex-shrink-0"
-              />
-            </button>
+            <LanguageToggle />
 
             <button
               onClick={() => setIsOpen(!isOpen)}
