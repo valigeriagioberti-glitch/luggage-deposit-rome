@@ -7,8 +7,8 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, setLanguage } = useLanguage();
 
-  const toggleLanguage = (lang: 'en' | 'it') => {
-    setLanguage(lang);
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'it' : 'en');
   };
 
   const navLinks = [
@@ -20,36 +20,30 @@ export const Navbar: React.FC = () => {
   ];
 
   const LanguageToggle = () => (
-    <div className="flex items-center bg-gray-100 p-1 rounded-full border border-gray-200 shadow-inner w-24 h-9">
+    <div className="relative group">
       <button
-        onClick={() => toggleLanguage('en')}
-        className={`flex-1 h-full flex items-center justify-center rounded-full text-[11px] font-extrabold transition-all duration-200 ${
-          language === 'en' 
-            ? 'bg-white text-dark shadow-sm ring-1 ring-black/5' 
-            : 'text-gray-400 hover:text-gray-600'
-        }`}
+        onClick={toggleLanguage}
+        aria-label={language === 'en' ? 'Switch language to Italian' : 'Cambia lingua in inglese'}
+        className="flex items-center justify-center bg-gray-100 hover:bg-gray-200 px-4 h-9 rounded-full border border-gray-200 shadow-sm transition-all duration-200 active:scale-95 min-w-[52px]"
       >
-        EN
+        <span className="text-[12px] font-extrabold text-dark tracking-wider uppercase">
+          {language}
+        </span>
       </button>
-      <button
-        onClick={() => toggleLanguage('it')}
-        className={`flex-1 h-full flex items-center justify-center rounded-full text-[11px] font-extrabold transition-all duration-200 ${
-          language === 'it' 
-            ? 'bg-white text-dark shadow-sm ring-1 ring-black/5' 
-            : 'text-gray-400 hover:text-gray-600'
-        }`}
-      >
-        IT
-      </button>
+      
+      {/* Tooltip Hint - Desktop Only */}
+      <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 px-2 py-1 bg-dark text-white text-[10px] font-bold rounded opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap z-50 shadow-lg hidden md:block">
+        {language === 'en' ? 'Switch to IT' : 'Passa a EN'}
+      </div>
     </div>
   );
 
   return (
     <nav className="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 gap-4">
+        <div className="flex justify-between items-center h-16 gap-8 md:gap-4">
           {/* Logo Section */}
-          <a href="#" className="flex-shrink-0 flex items-center gap-2 md:gap-3 cursor-pointer overflow-hidden">
+          <a href="#" className="flex-shrink-0 flex items-center gap-2 md:gap-3 cursor-pointer overflow-hidden min-w-0">
             <img 
               src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" 
               alt="Luggage Deposit Rome Logo" 
@@ -59,8 +53,8 @@ export const Navbar: React.FC = () => {
               fetchpriority="high"
               className="h-8 md:h-10 w-auto object-contain flex-shrink-0" 
             />
-            <div className="flex flex-col">
-              <span className="font-[800] text-[14px] md:text-[16px] leading-[14px] md:leading-[16px] text-dark tracking-tighter uppercase font-sans">LUGGAGE DEPOSIT</span>
+            <div className="flex flex-col truncate">
+              <span className="font-[800] text-[13px] sm:text-[14px] md:text-[16px] leading-[14px] md:leading-[16px] text-dark tracking-tighter uppercase font-sans truncate">LUGGAGE DEPOSIT</span>
               <span className="font-[700] text-[10px] leading-[10px] text-red-800 tracking-[0.25em] uppercase font-sans">ROME</span>
             </div>
           </a>
@@ -76,7 +70,6 @@ export const Navbar: React.FC = () => {
               </a>
             ))}
             
-            {/* Desktop Language Switcher */}
             <LanguageToggle />
 
             <a
@@ -93,6 +86,7 @@ export const Navbar: React.FC = () => {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-dark focus:outline-none p-2 flex-shrink-0"
+              aria-label="Toggle Menu"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

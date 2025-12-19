@@ -78,13 +78,9 @@ export const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Illustration (Desktop) & Highlight Card */}
+          {/* Right Column: Highlight Card */}
           <div className="relative">
-             
-             {/* Desktop Illustration - positioned behind the card */}
-             <div className="hidden lg:block absolute -top-20 -right-16 w-[130%] h-[130%] z-0 pointer-events-none opacity-90">
-                <HeroIllustration />
-             </div>
+             {/* Note: HeroIllustration for desktop removed per user request */}
 
              {/* Card */}
              <div className="relative z-10 bg-dark text-white p-8 rounded-3xl shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 lg:mr-12 lg:mt-12">
