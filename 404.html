@@ -41,7 +41,7 @@
     </style>
   </head>
   <body class="bg-gray-50 min-h-screen flex flex-col">
-    <!-- Simple Header -->
+    <!-- Branded Header -->
     <header class="bg-white border-b border-gray-100 py-4 shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
         <a href="/" class="flex items-center gap-2 md:gap-3">
@@ -60,38 +60,37 @@
       </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Content -->
     <main class="flex-grow flex items-center justify-center px-4 py-12">
-      <div class="max-w-md w-full text-center space-y-8">
-        <div class="relative">
-          <h1 class="text-[120px] font-extrabold text-gray-200 leading-none select-none">404</h1>
-          <div class="absolute inset-0 flex items-center justify-center mt-8">
-            <h2 class="text-3xl font-bold text-dark">Page not found</h2>
-          </div>
+      <div class="max-w-md w-full text-center space-y-6">
+        <div class="space-y-2">
+          <p class="text-primary font-bold tracking-widest uppercase text-sm">Error 404</p>
+          <h1 class="text-4xl font-extrabold text-dark tracking-tight">Page not found</h1>
         </div>
         
         <p class="text-gray-600 text-lg leading-relaxed">
-          Oops! It seems you've wandered off the path. The page you're looking for doesn't exist or has been moved.
+          Sorry, we couldn't find the page you're looking for. It might have been moved or doesn't exist.
         </p>
 
-        <div class="pt-4">
+        <div class="pt-6">
           <a 
             href="/" 
-            class="inline-flex items-center justify-center bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-hover transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto"
+            class="inline-flex items-center justify-center bg-primary text-white px-10 py-4 rounded-xl font-bold text-lg hover:bg-primary-hover transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 w-full sm:w-auto"
           >
-            Return to Home
+            Go back home
           </a>
         </div>
 
-        <div class="pt-8 border-t border-gray-200">
+        <div class="pt-10 border-t border-gray-200 mt-12">
           <p class="text-sm text-gray-400">
-            Need help? Contact us on WhatsApp for immediate assistance.
+            Need help with your luggage? <br class="sm:hidden" />
+            Contact us on WhatsApp for support.
           </p>
         </div>
       </div>
     </main>
 
-    <!-- Simple Footer -->
+    <!-- Minimal Footer -->
     <footer class="py-8 text-center text-sm text-gray-400">
       <p>&copy; 2025 Luggage Deposit Rome — All rights reserved.</p>
     </footer>
