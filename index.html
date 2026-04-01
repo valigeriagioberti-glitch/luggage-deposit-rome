@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#16A34A" />
-    <title>Luggage Deposit Rome - Storage near Roma Termini</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>SAFE - Luggage Deposit Rome | Deposito Bagagli Roma Termini</title>
+    <meta name="description" content="Deposito bagagli sicuro a 2 minuti da Roma Termini. Prenota online, aperto tutti i giorni dalle 08:30 alle 22:00. Sicuro e videosorvegliato." />
     
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp">
@@ -13,9 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.shopify.com">
-    <link rel="preconnect" href="https://upload.wikimedia.org">
     
-    <!-- Preload Critical Assets with High Priority -->
+    <!-- Preload LCP Image -->
     <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" fetchpriority="high">
     
     <!-- Optimized Font Loading -->
@@ -39,27 +41,14 @@
                 light: '#ecfdf5',
               },
               dark: '#0f172a',
-              gray: {
-                50: '#f9fafb',
-                100: '#f3f4f6',
-                200: '#e5e7eb',
-                300: '#d1d5db',
-                400: '#9ca3af',
-                500: '#6b7280',
-                600: '#4b5563',
-                700: '#374151',
-                800: '#1f2937',
-                900: '#111827',
-              }
             }
           }
         }
       }
     </script>
     <style>
-      /* Prevent CLS for H1 and text */
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Inter', 'sans-serif';
         font-display: swap;
       }
       html {
@@ -71,10 +60,6 @@
       details > summary::-webkit-details-marker {
         display: none;
       }
-      /* Reduce TBT by avoiding heavy transitions on load */
-      .no-transition * {
-        transition: none !important;
-      }
     </style>
   <script type="importmap">
 {
@@ -83,14 +68,14 @@
     "react": "https://aistudiocdn.com/react@^19.2.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-helmet-async": "https://aistudiocdn.com/react-helmet-async@^2.0.5"
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body>
     <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

@@ -55,28 +55,38 @@ export const Navbar: React.FC = () => {
       );
     }
 
-    // Desktop Pill Toggle (Unchanged)
+    // Desktop Pill Toggle (Updated to use flags)
     return (
-      <div className="flex items-center p-0.5 sm:p-1 bg-gray-100 rounded-full border border-gray-200 shadow-inner flex-shrink-0">
+      <div className="flex items-center p-1 bg-gray-100 rounded-full border border-gray-200 shadow-inner flex-shrink-0">
         <button
           onClick={() => setLanguage('en')}
-          className={`px-2 sm:px-3 py-1 text-[10px] sm:text-[11px] font-bold rounded-full transition-all duration-200 ${
+          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
             language === 'en'
-              ? 'bg-white text-dark shadow-sm'
-              : 'text-gray-500 hover:text-dark'
+              ? 'bg-white shadow-sm'
+              : 'hover:bg-gray-200'
           }`}
+          aria-label="Switch to English"
         >
-          GB
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" 
+            alt="EN" 
+            className={`w-4 h-4 rounded-full object-cover transition-opacity duration-300 ${language === 'en' ? 'opacity-100' : 'opacity-40 grayscale-[0.2]'}`}
+          />
         </button>
         <button
           onClick={() => setLanguage('it')}
-          className={`px-2 sm:px-3 py-1 text-[10px] sm:text-[11px] font-bold rounded-full transition-all duration-200 ${
+          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
             language === 'it'
-              ? 'bg-white text-dark shadow-sm'
-              : 'text-gray-500 hover:text-dark'
+              ? 'bg-white shadow-sm'
+              : 'hover:bg-gray-200'
           }`}
+          aria-label="Passa all'italiano"
         >
-          IT
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" 
+            alt="IT" 
+            className={`w-4 h-4 rounded-full object-cover transition-opacity duration-300 ${language === 'it' ? 'opacity-100' : 'opacity-40 grayscale-[0.2]'}`}
+          />
         </button>
       </div>
     );
@@ -94,7 +104,7 @@ export const Navbar: React.FC = () => {
               width="40"
               height="40"
               loading="eager"
-              fetchpriority="high"
+              fetchPriority="high"
               className="h-11 md:h-10 w-auto object-contain flex-shrink-0" 
             />
             <div className="flex flex-col truncate">
