@@ -11,10 +11,10 @@ export const SEO: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const t = translations[language];
 
-  const siteName = "SAFE - Luggage Deposit Rome";
+  const siteName = "Luggage Deposit Rome";
   const baseUrl = "https://www.luggagedepositrome.com";
   
-  let title = `${t.hero.titleStart} ${t.hero.titleEnd} | ${siteName}`;
+  let title = `Luggage Deposit Rome - Storage near Roma Termini`;
   let description = t.hero.subtitle;
   let url = baseUrl;
   let imageUrl = "https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp";

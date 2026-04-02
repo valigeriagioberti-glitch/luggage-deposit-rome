@@ -2,7 +2,6 @@ import React from 'react';
 import { Star, MapPin, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { GOOGLE_MAPS_PROFILE_URL, BOOKING_URL } from '../constants';
-import { HeroIllustration } from './HeroIllustration';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -11,9 +10,14 @@ export const Hero: React.FC = () => {
     <div className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Mobile: Illustration centered above content */}
+        {/* Mobile: Image centered above content */}
         <div className="md:hidden flex justify-center mb-8 w-full">
-           <HeroIllustration className="w-64 h-auto max-w-full drop-shadow-md" />
+           <img 
+             src="/luggage storage rome.png" 
+             alt="Luggage Storage Rome" 
+             referrerPolicy="no-referrer"
+             className="w-full h-auto max-w-[160px] rounded-xl" 
+           />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
