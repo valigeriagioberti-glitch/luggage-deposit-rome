@@ -16,41 +16,50 @@ async function startServer() {
     res.json({ status: 'ok' });
   });
 
-  // Create Vite server in middleware mode
-  const vite = await createViteServer({
-    server: { middlewareMode: true },
-    appType: 'custom' // Manual handling is more predictable in this environment
-  });
+  if (process.env.NODE_ENV !== "production") {
+    // Development mode with Vite
+    const vite = await createViteServer({
+      server: { middlewareMode: true },
+      appType: 'spa'
+    });
+    
+    app.use(vite.middlewares);
 
-  // Use vite's connect instance as middleware
-  app.use(vite.middlewares);
+    // Universal fallback middleware (no path string, avoids Express 5 wildcard issues)
+    app.use(async (req, res, next) => {
+      if (req.method !== 'GET') return next();
+      
+      // Let static assets fall through to 404
+      if (req.path.includes('.') && !req.path.endsWith('.html')) {
+        return next();
+      }
 
-  // Catch-all route for SPA fallback with Express 5 compatibility
-  app.get('*all', async (req, res, next) => {
-    const url = req.originalUrl;
-
-    // Skip if the request looks like a static asset
-    if (url.includes('.') && !url.endsWith('.html')) {
-      return next();
-    }
-
-    try {
-      // Read index.html
-      let template = fs.readFileSync(
-        path.resolve(process.cwd(), 'index.html'),
-        'utf-8',
-      );
-
-      // Apply Vite HTML transforms
-      template = await vite.transformIndexHtml(url, template);
-
-      // Serve the transformed HTML
-      res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
-    } catch (e) {
-      if (vite) vite.ssrFixStacktrace(e as Error);
-      next(e);
-    }
-  });
+      try {
+        let template = fs.readFileSync(path.resolve(process.cwd(), 'index.html'), 'utf-8');
+        template = await vite.transformIndexHtml(req.originalUrl, template);
+        res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
+      } catch (e) {
+        vite.ssrFixStacktrace(e as Error);
+        next(e);
+      }
+    });
+  } else {
+    // Production mode
+    const distPath = path.join(process.cwd(), 'dist');
+    app.use(express.static(distPath));
+    
+    // Universal fallback middleware for production
+    app.use((req, res, next) => {
+      if (req.method !== 'GET') return next();
+      
+      // Let static assets fall through to 404
+      if (req.path.includes('.') && !req.path.endsWith('.html')) {
+        return next();
+      }
+      
+      res.sendFile(path.join(distPath, 'index.html'));
+    });
+  }
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);
