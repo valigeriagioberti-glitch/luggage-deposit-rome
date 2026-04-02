@@ -125,23 +125,13 @@ export const Navbar: React.FC = () => {
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-shrink-0">
             {navLinks.map((link) => (
               link.isHash ? (
-                isHome ? (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.name}
-                    to="/"
-                    className="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                )
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+                >
+                  {link.name}
+                </a>
               ) : (
                 <Link
                   key={link.name}
@@ -184,25 +174,14 @@ export const Navbar: React.FC = () => {
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
               link.isHash ? (
-                isHome ? (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-green-50 rounded-md"
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={link.name}
-                    to="/"
-                    onClick={() => setIsOpen(false)}
-                    className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-green-50 rounded-md"
-                  >
-                    {link.name}
-                  </Link>
-                )
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-green-50 rounded-md"
+                >
+                  {link.name}
+                </a>
               ) : (
                 <Link
                   key={link.name}
