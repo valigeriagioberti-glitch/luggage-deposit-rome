@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { BOOKING_URL } from '../constants';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, setLanguage } = useLanguage();
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   const navLinks = [
-    { name: t.nav.howItWorks, href: '#how-it-works' },
-    { name: t.nav.pricing, href: '#pricing' },
-    { name: t.nav.reviews, href: '#reviews' },
-    { name: t.nav.location, href: '#location' },
-    { name: t.nav.faq, href: '#faq' },
+    { name: t.nav.howItWorks, href: isHome ? '#how-it-works' : '/#how-it-works', isHash: true },
+    { name: t.nav.pricing, href: isHome ? '#pricing' : '/#pricing', isHash: true },
+    { name: t.nav.reviews, href: isHome ? '#reviews' : '/#reviews', isHash: true },
+    { name: t.nav.location, href: isHome ? '#location' : '/#location', isHash: true },
+    { name: t.nav.faq, href: isHome ? '#faq' : '/#faq', isHash: true },
+    { name: t.nav.blog, href: '/blog', isHash: false },
   ];
 
   const LanguageToggle = ({ isMobile = false }: { isMobile?: boolean }) => {
@@ -97,7 +101,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-16 gap-2 md:gap-8">
           {/* Logo Section */}
-          <a href="#" className="flex-shrink flex items-center gap-2.5 md:gap-3 cursor-pointer overflow-hidden min-w-0">
+          <Link to="/" className="flex-shrink flex items-center gap-2.5 md:gap-3 cursor-pointer overflow-hidden min-w-0">
             <img 
               src="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" 
               alt="Luggage Deposit Rome Logo" 
@@ -115,18 +119,28 @@ export const Navbar: React.FC = () => {
                 ROME
               </span>
             </div>
-          </a>
+          </Link>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8 flex-shrink-0">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
-              >
-                {link.name}
-              </a>
+              link.isHash ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-600 hover:text-primary font-medium text-sm transition-colors"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={`font-medium text-sm transition-colors ${location.pathname.startsWith(link.href) ? 'text-primary' : 'text-gray-600 hover:text-primary'}`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             
             <LanguageToggle />
@@ -159,14 +173,25 @@ export const Navbar: React.FC = () => {
         <div className="md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-1">
             {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-green-50 rounded-md"
-              >
-                {link.name}
-              </a>
+              link.isHash ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-green-50 rounded-md"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className={`block px-3 py-3 text-base font-medium rounded-md ${location.pathname.startsWith(link.href) ? 'text-primary bg-green-50' : 'text-gray-700 hover:text-primary hover:bg-green-50'}`}
+                >
+                  {link.name}
+                </Link>
+              )
             ))}
             <a
               href={BOOKING_URL}

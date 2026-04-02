@@ -8,8 +8,17 @@ export const translations = {
       reviews: "Recensioni",
       location: "Dove siamo",
       faq: "FAQ",
+      blog: "Blog",
       bookNow: "Prenota Ora",
       bookStorage: "Prenota Deposito"
+    },
+    blog: {
+      title: "Blog & Consigli di Viaggio",
+      subtitle: "Scopri come goderti Roma al meglio con i nostri consigli su cosa vedere e come muoverti.",
+      readMore: "Leggi di più",
+      backToList: "Torna al Blog",
+      postedOn: "Pubblicato il",
+      noPosts: "Nessun articolo trovato."
     },
     hero: {
       openEveryDay: "Aperto tutti i giorni",
@@ -203,8 +212,17 @@ export const translations = {
       reviews: "Reviews",
       location: "Location",
       faq: "FAQ",
+      blog: "Blog",
       bookNow: "Book Now",
       bookStorage: "Book Storage"
+    },
+    blog: {
+      title: "Blog & Travel Tips",
+      subtitle: "Discover how to enjoy Rome at its best with our tips on what to see and how to get around.",
+      readMore: "Read more",
+      backToList: "Back to Blog",
+      postedOn: "Posted on",
+      noPosts: "No articles found."
     },
     hero: {
       openEveryDay: "Open every day",

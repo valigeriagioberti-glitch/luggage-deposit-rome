@@ -1,17 +1,44 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocation, useParams } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
+import { blogPosts } from '../data/blogPosts';
 
 export const SEO: React.FC = () => {
   const { language } = useLanguage();
+  const location = useLocation();
+  const { slug } = useParams<{ slug: string }>();
   const t = translations[language];
 
   const siteName = "SAFE - Luggage Deposit Rome";
-  const title = `${t.hero.titleStart} ${t.hero.titleEnd} | ${siteName}`;
-  const description = t.hero.subtitle;
-  const url = "https://www.luggagedepositrome.com";
-  const imageUrl = "https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp";
+  const baseUrl = "https://www.luggagedepositrome.com";
+  
+  let title = `${t.hero.titleStart} ${t.hero.titleEnd} | ${siteName}`;
+  let description = t.hero.subtitle;
+  let url = baseUrl;
+  let imageUrl = "https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp";
+  let ogType = "website";
+
+  // Blog List Page
+  if (location.pathname === '/blog') {
+    title = `${t.blog.title} | ${siteName}`;
+    description = t.blog.subtitle;
+    url = `${baseUrl}/blog`;
+  }
+
+  // Blog Post Page
+  if (slug) {
+    const post = blogPosts.find(p => p.slug === slug);
+    if (post) {
+      const content = post.translations[language as 'it' | 'en'];
+      title = `${content.title} | ${siteName}`;
+      description = content.excerpt;
+      url = `${baseUrl}/blog/${slug}`;
+      imageUrl = post.image;
+      ogType = "article";
+    }
+  }
 
   // Structured Data for LocalBusiness
   const localBusinessSchema = {
@@ -84,7 +111,7 @@ export const SEO: React.FC = () => {
       <link rel="alternate" hrefLang="x-default" href={url} />
 
       {/* Open Graph / Facebook */}
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={ogType} />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
