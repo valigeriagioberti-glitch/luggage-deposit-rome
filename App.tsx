@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { BlogList } from './components/BlogList';
 import { BlogPost } from './components/BlogPost';
+import { ScrollToTop } from './components/ScrollToTop';
 import { LanguageProvider } from './LanguageContext';
 import { SEO } from './components/SEO';
 import { WhatsAppButton } from './components/WhatsAppButton';
@@ -13,6 +14,7 @@ function App() {
   return (
     <LanguageProvider>
       <BrowserRouter>
+        <ScrollToTop />
         <SEO />
         <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-green-100 selection:text-green-900">
           <Navbar />

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { blogPosts } from '../data/blogPosts';
@@ -10,10 +10,6 @@ export const BlogPost: React.FC = () => {
   const navigate = useNavigate();
 
   const post = blogPosts.find((p) => p.slug === slug);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
 
   if (!post) {
     return (
@@ -43,7 +39,7 @@ export const BlogPost: React.FC = () => {
   };
 
   return (
-    <article className="pt-24 pb-20 bg-white">
+    <article className="pt-32 pb-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back Button */}
         <Link 
