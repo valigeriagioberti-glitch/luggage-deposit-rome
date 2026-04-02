@@ -24,7 +24,7 @@ export const SEO: React.FC = () => {
   if (location.pathname === '/blog') {
     title = `${t.blog.title} | ${siteName}`;
     description = t.blog.subtitle;
-    url = `${baseUrl}/#/blog`;
+    url = `${baseUrl}/blog`;
   }
 
   // Blog Post Page
@@ -34,7 +34,7 @@ export const SEO: React.FC = () => {
       const content = post.translations[language as 'it' | 'en'];
       title = `${content.title} | ${siteName}`;
       description = content.excerpt;
-      url = `${baseUrl}/#/blog/${slug}`;
+      url = `${baseUrl}/blog/${slug}`;
       imageUrl = post.image;
       ogType = "article";
     }

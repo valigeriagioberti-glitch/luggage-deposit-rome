@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
 import { BlogList } from './components/BlogList';
@@ -13,7 +13,7 @@ import { Footer } from './components/Footer';
 function App() {
   return (
     <LanguageProvider>
-      <HashRouter>
+      <BrowserRouter>
         <ScrollToTop />
         <SEO />
         <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-green-100 selection:text-green-900">
@@ -26,7 +26,7 @@ function App() {
           <Footer />
           <WhatsAppButton />
         </div>
-      </HashRouter>
+      </BrowserRouter>
     </LanguageProvider>
   );
 }
