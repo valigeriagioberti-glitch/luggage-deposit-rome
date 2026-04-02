@@ -11,40 +11,43 @@ async function startServer() {
   const app = express();
   const PORT = 3000;
 
-  // Create Vite server in middleware mode 
+  // Simple health check
+  app.get('/api/health', (req, res) => {
+    res.json({ status: 'ok' });
+  });
+
+  // Create Vite server in middleware mode
   const vite = await createViteServer({
     server: { middlewareMode: true },
-    appType: 'custom' // Manual HTML handling is more robust for routing
+    appType: 'custom' // Manual handling is more predictable in this environment
   });
 
   // Use vite's connect instance as middleware
   app.use(vite.middlewares);
 
-  // Catch-all route for SPA fallback
-  app.use('*', async (req, res, next) => {
+  // Catch-all route for SPA fallback with Express 5 compatibility
+  app.get('*all', async (req, res, next) => {
     const url = req.originalUrl;
 
-    // Skip if the request looks like a file (has an extension)
-    // This allows Vite's middleware to handle static assets
+    // Skip if the request looks like a static asset
     if (url.includes('.') && !url.endsWith('.html')) {
       return next();
     }
 
     try {
-      // Always serve the root index.html for any other route
+      // Read index.html
       let template = fs.readFileSync(
         path.resolve(process.cwd(), 'index.html'),
         'utf-8',
       );
 
-      // Apply Vite HTML transforms (injects scripts, HMR, etc.)
+      // Apply Vite HTML transforms
       template = await vite.transformIndexHtml(url, template);
 
+      // Serve the transformed HTML
       res.status(200).set({ 'Content-Type': 'text/html' }).end(template);
     } catch (e) {
-      // If an error is caught, let Vite fix the stack trace
       if (vite) vite.ssrFixStacktrace(e as Error);
-      console.error('SPA Fallback Error:', e);
       next(e);
     }
   });
