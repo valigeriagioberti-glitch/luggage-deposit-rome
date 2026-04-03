@@ -21,35 +21,26 @@
     <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" fetchpriority="high">
     
     <!-- Optimized Font Loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     </noscript>
     
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
-              heading: ['Outfit', 'sans-serif'],
             },
             colors: {
               primary: {
-                DEFAULT: '#059669', // Emerald 600
-                hover: '#047857', // Emerald 700
-                light: '#ecfdf5', // Emerald 50
+                DEFAULT: '#16a34a', // Green
+                hover: '#15803d',
+                light: '#ecfdf5',
               },
               dark: '#0f172a',
-              background: '#FAFAF9', // Warm off-white
-            },
-            boxShadow: {
-              'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
-              'glow': '0 0 20px rgba(5, 150, 105, 0.4)',
-            },
-            padding: {
-              'safe': 'env(safe-area-inset-bottom)',
             }
           }
         }

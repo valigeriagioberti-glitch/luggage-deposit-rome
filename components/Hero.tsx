@@ -2,7 +2,6 @@ import React from 'react';
 import { Star, MapPin, Clock, ShieldCheck, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 import { GOOGLE_MAPS_PROFILE_URL, BOOKING_URL } from '../constants';
-import { HeroIllustration } from './HeroIllustration';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -11,9 +10,14 @@ export const Hero: React.FC = () => {
     <div className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Mobile: Illustration centered above content */}
+        {/* Mobile: Image centered above content */}
         <div className="md:hidden flex justify-center mb-8 w-full">
-           <HeroIllustration className="w-full h-auto max-w-[200px]" />
+           <img 
+             src="/luggage storage rome.png" 
+             alt="Luggage Storage Rome" 
+             referrerPolicy="no-referrer"
+             className="w-full h-auto max-w-[160px] rounded-xl" 
+           />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -80,10 +84,7 @@ export const Hero: React.FC = () => {
 
           {/* Right Column: Highlight Card */}
           <div className="relative">
-             {/* Illustration */}
-             <div className="hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-auto z-0 opacity-90 pointer-events-none">
-               <HeroIllustration className="w-full h-full" />
-             </div>
+             {/* Note: HeroIllustration for desktop removed per user request */}
 
              {/* Card */}
              <div className="relative z-10 bg-dark text-white p-8 rounded-3xl shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 lg:mr-12 lg:mt-12">
