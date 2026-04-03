@@ -12,28 +12,30 @@
     <!-- Favicon -->
     <link rel="icon" type="image/webp" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp">
     
-    <!-- Preconnect to critical origins -->
+    <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="preconnect" href="https://aistudiocdn.com">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.shopify.com">
     
     <!-- Preload LCP Image with High Priority -->
     <link rel="preload" as="image" href="/luggage storage rome.png" fetchpriority="high">
     
-    <!-- Preload Logo -->
-    <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" fetchpriority="high">
-    
     <!-- Optimized Font Loading -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" media="all">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    </noscript>
     
-    <script src="https://cdn.tailwindcss.com?plugins=typography" defer></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+              sans: ['Inter', 'sans-serif'],
             },
             colors: {
               primary: {
@@ -49,110 +51,60 @@
     </script>
     <style>
       /* Critical CSS for above-the-fold content */
-      :root {
-        --primary: #16a34a;
-        --dark: #0f172a;
-        --gray-100: #f1f5f9;
-        --gray-400: #94a3b8;
-        --gray-600: #475569;
-      }
-      * { box-sizing: border-box; }
       body {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', 'sans-serif';
         font-display: swap;
         margin: 0;
         background: #fff;
-        color: var(--dark);
-        -webkit-font-smoothing: antialiased;
+      }
+      html {
+        scroll-behavior: smooth;
       }
       .skeleton-hero {
         padding-top: 6rem;
         padding-bottom: 4rem;
         max-width: 80rem;
         margin: 0 auto;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
-        display: flex;
-        flex-direction: column;
-      }
-      .skeleton-badge {
-        width: 140px;
-        height: 28px;
-        background: #ecfdf5;
-        border-radius: 9999px;
-        margin-bottom: 1.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
       }
       .skeleton-title {
-        height: 4rem;
-        background: var(--gray-100);
-        border-radius: 0.75rem;
-        width: 90%;
+        height: 3rem;
+        background: #f1f5f9;
+        border-radius: 0.5rem;
+        width: 80%;
         margin-bottom: 1.5rem;
       }
       .skeleton-text {
         height: 1.25rem;
-        background: var(--gray-100);
-        border-radius: 0.375rem;
-        width: 75%;
+        background: #f1f5f9;
+        border-radius: 0.25rem;
+        width: 60%;
         margin-bottom: 1rem;
-      }
-      .skeleton-btns {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
       }
       .skeleton-btn {
         height: 3.5rem;
-        background: var(--gray-100);
+        background: #f1f5f9;
         border-radius: 0.75rem;
-        width: 180px;
-      }
-      .skeleton-img {
-        height: 450px;
-        background: var(--gray-100);
-        border-radius: 2rem;
-        margin-top: 3rem;
-        width: 100%;
+        width: 12rem;
+        display: inline-block;
+        margin-right: 1rem;
       }
       @media (min-width: 1024px) {
         .skeleton-hero {
           padding-top: 8rem;
           padding-bottom: 6rem;
-          flex-direction: row;
-          align-items: center;
-          gap: 5rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
         }
-        .skeleton-hero > div:first-child {
-          flex: 1.2;
-        }
-        .skeleton-img {
-          flex: 0.8;
-          margin-top: 0;
-        }
-      }
-      @keyframes pulse {
-        0%, 100% { opacity: 1; }
-        50% { opacity: .6; }
-      }
-      .animate-pulse {
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
       
-      /* Navbar placeholder */
-      .nav-placeholder {
-        height: 80px;
-        border-bottom: 1px solid #f1f5f9;
-        display: flex;
-        align-items: center;
-        padding: 0 1.5rem;
-        max-width: 80rem;
-        margin: 0 auto;
+      details > summary {
+        list-style: none;
       }
-      .nav-logo {
-        width: 150px;
-        height: 40px;
-        background: var(--gray-100);
-        border-radius: 0.5rem;
+      details > summary::-webkit-details-marker {
+        display: none;
       }
     </style>
   <script type="importmap">
@@ -171,21 +123,17 @@
   <body>
     <div id="root">
       <!-- Lightweight Loading State to prevent blank screen -->
-      <div class="nav-placeholder">
-        <div class="nav-logo animate-pulse"></div>
-      </div>
       <div class="skeleton-hero">
         <div>
-          <div class="skeleton-badge animate-pulse"></div>
-          <div class="skeleton-title animate-pulse"></div>
-          <div class="skeleton-text animate-pulse"></div>
-          <div class="skeleton-text animate-pulse"></div>
-          <div class="skeleton-btns">
-            <div class="skeleton-btn animate-pulse"></div>
-            <div class="skeleton-btn animate-pulse"></div>
-          </div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-btn"></div>
+          <div class="skeleton-btn"></div>
         </div>
-        <div class="skeleton-img animate-pulse"></div>
+        <div class="hidden lg:block">
+          <div style="height: 400px; background: #f1f5f9; border-radius: 1.5rem;"></div>
+        </div>
       </div>
     </div>
     <script type="module" src="/index.tsx"></script>
