@@ -20,7 +20,7 @@ export const getTravelAdvice = async (userQuery: string): Promise<string> => {
         - **Name**: Luggage Deposit Rome
         - **Location**: Via Gioberti, 42, 00185 Roma RM, Italy.
         - **Directions**: 2 minutes walk from Roma Termini. Exit station via Track 24 (Via Giolitti side), cross the street, and walk down Via Gioberti.
-        - **Opening Hours**: 08:30 - 22:00, Open Every Day (Monday to Sunday).
+        - **Opening Hours**: 08:30 - 22:30, Open Every Day (Monday to Sunday).
         - **Phone**: +39 064467843
         - **Pricing**: 
           - Cabin Bag: €5/day

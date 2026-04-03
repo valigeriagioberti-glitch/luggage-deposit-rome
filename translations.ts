@@ -42,7 +42,7 @@ export const translations = {
         distanceValue: "2 minuti a piedi",
         distanceSub: "da Roma Termini",
         hoursLabel: "Orari di apertura",
-        hoursValue: "08:30 - 22:00",
+        hoursValue: "08:30 - 22:30",
         hoursSub: "Aperto tutti i giorni",
         securityLabel: "Sicurezza",
         securityValue: "Sicuro, Videosorvegliato",
@@ -178,7 +178,7 @@ export const translations = {
         },
         {
           q: "Cosa succede se sono in ritardo per il ritiro?",
-          a: "Siamo aperti fino alle 22:00. Se sei in ritardo, contattaci immediatamente via WhatsApp. I ritiri tardivi potrebbero comportare un costo aggiuntivo o il ritiro il giorno successivo."
+          a: "Siamo aperti fino alle 22:30. Se sei in ritardo, contattaci immediatamente via WhatsApp. I ritiri tardivi potrebbero comportare un costo aggiuntivo o il ritiro il giorno successivo."
         },
         {
           q: "Posso cancellare la mia prenotazione?",
@@ -246,7 +246,7 @@ export const translations = {
         distanceValue: "2 minutes walk",
         distanceSub: "from Roma Termini",
         hoursLabel: "Opening Hours",
-        hoursValue: "08:30 - 22:00",
+        hoursValue: "08:30 - 22:30",
         hoursSub: "Open every day",
         securityLabel: "Security",
         securityValue: "Secure, CCTV Monitored",
@@ -382,7 +382,7 @@ export const translations = {
         },
         {
           q: "What happens if I'm late to pick up?",
-          a: "We are open until 22:00. If you are running late, please contact us immediately via WhatsApp. Late pickups may incur an additional fee or next-day retrieval."
+          a: "We are open until 22:30. If you are running late, please contact us immediately via WhatsApp. Late pickups may incur an additional fee or next-day retrieval."
         },
         {
           q: "Can I cancel my booking?",
