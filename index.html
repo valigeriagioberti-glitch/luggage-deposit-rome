@@ -16,9 +16,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="preconnect" href="https://aistudiocdn.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdn.shopify.com">
     
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp" fetchpriority="high">
+    <!-- Preload LCP Image with High Priority -->
+    <link rel="preload" as="image" href="/luggage storage rome.png" fetchpriority="high">
     
     <!-- Optimized Font Loading -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -26,7 +29,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
     </noscript>
     
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <script>
       tailwind.config = {
         theme: {
@@ -47,13 +50,56 @@
       }
     </script>
     <style>
+      /* Critical CSS for above-the-fold content */
       body {
         font-family: 'Inter', 'sans-serif';
         font-display: swap;
+        margin: 0;
+        background: #fff;
       }
       html {
         scroll-behavior: smooth;
       }
+      .skeleton-hero {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+        max-width: 80rem;
+        margin: 0 auto;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .skeleton-title {
+        height: 3rem;
+        background: #f1f5f9;
+        border-radius: 0.5rem;
+        width: 80%;
+        margin-bottom: 1.5rem;
+      }
+      .skeleton-text {
+        height: 1.25rem;
+        background: #f1f5f9;
+        border-radius: 0.25rem;
+        width: 60%;
+        margin-bottom: 1rem;
+      }
+      .skeleton-btn {
+        height: 3.5rem;
+        background: #f1f5f9;
+        border-radius: 0.75rem;
+        width: 12rem;
+        display: inline-block;
+        margin-right: 1rem;
+      }
+      @media (min-width: 1024px) {
+        .skeleton-hero {
+          padding-top: 8rem;
+          padding-bottom: 6rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+        }
+      }
+      
       details > summary {
         list-style: none;
       }
@@ -75,7 +121,21 @@
 </script>
 </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Lightweight Loading State to prevent blank screen -->
+      <div class="skeleton-hero">
+        <div>
+          <div class="skeleton-title"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-btn"></div>
+          <div class="skeleton-btn"></div>
+        </div>
+        <div class="hidden lg:block">
+          <div style="height: 400px; background: #f1f5f9; border-radius: 1.5rem;"></div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/index.tsx"></script>
   </body>
 </html>

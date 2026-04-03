@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { blogPosts } from '../data/blogPosts';
-import { Calendar, ArrowLeft, Share2 } from 'lucide-react';
+import { Calendar, ArrowLeft, Share2, Clock } from 'lucide-react';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -25,6 +25,10 @@ export const BlogPost: React.FC = () => {
 
   const content = post.translations[language as 'it' | 'en'];
 
+  // Calculate reading time (approx 200 words per minute)
+  const wordCount = content.content.split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / 200);
+
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
@@ -44,56 +48,72 @@ export const BlogPost: React.FC = () => {
         {/* Back Button */}
         <Link 
           to="/blog" 
-          className="inline-flex items-center gap-2 text-gray-500 hover:text-primary font-medium mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-primary font-medium mb-12 transition-colors group"
         >
-          <ArrowLeft size={18} />
+          <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
           {t.blog.backToList}
         </Link>
 
         {/* Header */}
-        <div className="mb-10">
-          <div className="flex items-center gap-3 text-sm text-gray-400 mb-4">
-            <Calendar size={16} />
-            <span>{t.blog.postedOn} {new Date(post.date).toLocaleDateString(language === 'it' ? 'it-IT' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+        <header className="mb-12">
+          <div className="flex items-center gap-6 text-sm font-semibold text-gray-400 mb-6 uppercase tracking-widest">
+            <div className="flex items-center gap-2">
+              <Calendar size={16} className="text-primary" />
+              <span>{new Date(post.date).toLocaleDateString(language === 'it' ? 'it-IT' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock size={16} className="text-primary" />
+              <span>{readingTime} min read</span>
+            </div>
           </div>
-          <h1 className="text-3xl md:text-5xl font-bold text-dark leading-tight mb-6">
+          
+          <h1 className="text-2xl md:text-4xl font-bold text-dark leading-tight mb-8 tracking-tight">
             {content.title}
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed italic border-l-4 border-primary pl-6">
-            {content.excerpt}
-          </p>
-        </div>
+          
+          <div className="relative">
+            <div className="absolute left-0 top-0 bottom-0 w-1.5 bg-primary rounded-full"></div>
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed pl-8 font-medium italic">
+              {content.excerpt}
+            </p>
+          </div>
+        </header>
 
         {/* Featured Image */}
-        <div className="rounded-3xl overflow-hidden shadow-xl mb-12 aspect-video">
+        <div className="rounded-[2.5rem] overflow-hidden shadow-2xl mb-16 aspect-video relative group">
           <img 
             src={post.image} 
             alt={content.title} 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
         </div>
 
         {/* Content */}
         <div 
-          className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-6"
+          className="prose max-w-none prose-headings:text-dark prose-headings:font-bold prose-p:text-gray-700 prose-p:leading-relaxed prose-li:text-gray-700 prose-strong:text-dark prose-strong:font-bold prose-img:rounded-3xl prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: content.content }}
         />
 
         {/* Footer / Share */}
-        <div className="mt-16 pt-8 border-t border-gray-100 flex justify-between items-center">
-          <button 
-            onClick={handleShare}
-            className="inline-flex items-center gap-2 bg-gray-100 text-gray-700 px-5 py-2.5 rounded-full font-bold hover:bg-gray-200 transition-all"
-          >
-            <Share2 size={18} />
-            Share
-          </button>
+        <div className="mt-20 pt-10 border-t border-gray-100 flex flex-col sm:flex-row justify-between items-center gap-6">
+          <div className="flex items-center gap-4">
+            <span className="text-sm font-bold text-gray-400 uppercase tracking-wider">Share this story</span>
+            <button 
+              onClick={handleShare}
+              className="inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full font-bold hover:bg-primary-hover transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <Share2 size={18} />
+              {language === 'it' ? 'Condividi' : 'Share'}
+            </button>
+          </div>
           
           <Link 
             to="/blog" 
-            className="text-primary font-bold hover:underline"
+            className="text-primary font-bold hover:text-primary-hover flex items-center gap-2 group"
           >
             {t.blog.backToList}
+            <ArrowLeft size={18} className="rotate-180 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>

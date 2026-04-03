@@ -16,7 +16,11 @@ export const Hero: React.FC = () => {
              src="/luggage storage rome.png" 
              alt="Luggage Storage Rome" 
              referrerPolicy="no-referrer"
-             className="w-full h-auto max-w-[160px] rounded-xl" 
+             fetchPriority="high"
+             loading="eager"
+             width="240"
+             height="240"
+             className="w-full h-auto max-w-[240px] rounded-xl" 
            />
         </div>
 
