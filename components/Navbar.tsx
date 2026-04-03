@@ -97,7 +97,7 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="fixed w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+    <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20 md:h-16 gap-2 md:gap-8">
           {/* Logo Section */}
@@ -147,7 +147,7 @@ export const Navbar: React.FC = () => {
 
             <a
               href={BOOKING_URL}
-              className="bg-primary text-white px-4 lg:px-5 py-2 rounded-lg font-semibold text-sm hover:bg-primary-hover transition-all shadow-md hover:shadow-lg"
+              className="bg-primary text-white px-4 lg:px-5 py-2 rounded-lg font-semibold text-sm hover:bg-primary-hover transition-all duration-300 shadow-md hover:shadow-glow hover:-translate-y-0.5"
             >
               {t.nav.bookNow}
             </a>

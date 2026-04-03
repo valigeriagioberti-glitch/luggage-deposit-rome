@@ -16,7 +16,7 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <SEO />
-        <div className="min-h-screen bg-white font-sans text-gray-900 selection:bg-green-100 selection:text-green-900">
+        <div className="min-h-screen bg-background font-sans text-gray-900 selection:bg-primary/20 selection:text-primary">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

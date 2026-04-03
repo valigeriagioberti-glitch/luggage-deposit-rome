@@ -1,5 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { Hero } from './Hero';
+import { TrustBadges } from './TrustBadges';
+import { MobileBookingBar } from './MobileBookingBar';
 
 // Lazy load below-the-fold components
 const Stats = lazy(() => import('./Stats').then(m => ({ default: m.Stats })));
@@ -13,6 +15,7 @@ export const Home: React.FC = () => {
   return (
     <main>
       <Hero />
+      <TrustBadges />
       <Suspense fallback={<div className="h-20 bg-gray-50 flex items-center justify-center">Loading...</div>}>
         <Stats />
         <Services />
@@ -21,6 +24,7 @@ export const Home: React.FC = () => {
         <Reviews />
         <FAQ />
       </Suspense>
+      <MobileBookingBar />
     </main>
   );
 };
