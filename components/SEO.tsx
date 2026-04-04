@@ -14,8 +14,8 @@ export const SEO: React.FC = () => {
   const siteName = "Luggage Deposit Rome";
   const baseUrl = "https://www.luggagedepositrome.com";
   
-  let title = `Luggage Deposit Rome - Storage near Roma Termini`;
-  let description = t.hero.subtitle;
+  let title = `Luggage Storage Rome Termini - From €5/day | Luggage Deposit Rome`;
+  let description = `Secure luggage storage in Rome Termini from €5/day. All bag sizes accepted, fast drop-off, free cancellation. Book online in seconds with Luggage Deposit Rome.`;
   let url = baseUrl;
   let imageUrl = "https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp";
   let ogType = "website";
