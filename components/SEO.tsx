@@ -106,9 +106,9 @@ export const SEO: React.FC = () => {
       <html lang={language} />
 
       {/* Multilingual Support (Hreflang) */}
-      <link rel="alternate" hrefLang="en" href={`${url}/?lang=en`} />
-      <link rel="alternate" hrefLang="it" href={`${url}/?lang=it`} />
-      <link rel="alternate" hrefLang="x-default" href={url} />
+      <link rel="alternate" hrefLang="en" href={baseUrl} />
+      <link rel="alternate" hrefLang="it" href={`${baseUrl}/it`} />
+      <link rel="alternate" hrefLang="x-default" href={baseUrl} />
 
       {/* Open Graph / Facebook */}
       <meta property="og:type" content={ogType} />

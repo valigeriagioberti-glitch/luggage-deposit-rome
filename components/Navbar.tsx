@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { BOOKING_URL } from '../constants';
 
@@ -8,14 +8,29 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t, language, setLanguage } = useLanguage();
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/' || location.pathname === '/it' || location.pathname === '/en';
+  const homePath = language === 'it' ? '/it' : '/';
+
+  const handleLanguageChange = (newLang: 'en' | 'it') => {
+    if (newLang === language) return;
+    
+    setLanguage(newLang);
+    
+    // If on a home-related path, switch between / and /it
+    if (isHome) {
+      navigate(newLang === 'it' ? '/it' : '/');
+    }
+    // For other pages (like blog), we could add prefixes later if needed
+    // For now, we just update the context which updates the UI
+  };
 
   const navLinks = [
-    { name: t.nav.howItWorks, href: isHome ? '#how-it-works' : '/#how-it-works', isHash: true },
-    { name: t.nav.pricing, href: isHome ? '#pricing' : '/#pricing', isHash: true },
-    { name: t.nav.reviews, href: isHome ? '#reviews' : '/#reviews', isHash: true },
-    { name: t.nav.location, href: isHome ? '#location' : '/#location', isHash: true },
-    { name: t.nav.faq, href: isHome ? '#faq' : '/#faq', isHash: true },
+    { name: t.nav.howItWorks, href: isHome ? '#how-it-works' : `${homePath}#how-it-works`, isHash: true },
+    { name: t.nav.pricing, href: isHome ? '#pricing' : `${homePath}#pricing`, isHash: true },
+    { name: t.nav.reviews, href: isHome ? '#reviews' : `${homePath}#reviews`, isHash: true },
+    { name: t.nav.location, href: isHome ? '#location' : `${homePath}#location`, isHash: true },
+    { name: t.nav.faq, href: isHome ? '#faq' : `${homePath}#faq`, isHash: true },
     { name: t.nav.blog, href: '/blog', isHash: false },
   ];
 
@@ -26,7 +41,7 @@ export const Navbar: React.FC = () => {
       return (
         <div className="flex items-center p-1 bg-gray-100 rounded-md border border-gray-200 w-[74px] h-[38px] flex-shrink-0">
           <button
-            onClick={() => setLanguage('en')}
+            onClick={() => handleLanguageChange('en')}
             className={`flex-1 h-full flex items-center justify-center rounded-sm transition-all duration-300 ${
               language === 'en'
                 ? 'bg-white shadow-sm border border-gray-100'
@@ -41,7 +56,7 @@ export const Navbar: React.FC = () => {
             />
           </button>
           <button
-            onClick={() => setLanguage('it')}
+            onClick={() => handleLanguageChange('it')}
             className={`flex-1 h-full flex items-center justify-center rounded-sm transition-all duration-300 ${
               language === 'it'
                 ? 'bg-white shadow-sm border border-gray-100'
@@ -63,7 +78,7 @@ export const Navbar: React.FC = () => {
     return (
       <div className="flex items-center p-1 bg-gray-100 rounded-full border border-gray-200 shadow-inner flex-shrink-0">
         <button
-          onClick={() => setLanguage('en')}
+          onClick={() => handleLanguageChange('en')}
           className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
             language === 'en'
               ? 'bg-white shadow-sm'
@@ -78,7 +93,7 @@ export const Navbar: React.FC = () => {
           />
         </button>
         <button
-          onClick={() => setLanguage('it')}
+          onClick={() => handleLanguageChange('it')}
           className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
             language === 'it'
               ? 'bg-white shadow-sm'
