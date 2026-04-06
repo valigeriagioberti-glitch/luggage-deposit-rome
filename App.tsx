@@ -9,6 +9,7 @@ import { LanguageProvider } from './LanguageContext';
 import { SEO } from './components/SEO';
 import { WhatsAppButton } from './components/WhatsAppButton';
 import { Footer } from './components/Footer';
+import { NotFound } from './components/NotFound';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/en" element={<Home />} />
             <Route path="/blog" element={<BlogList />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />
           <WhatsAppButton />

@@ -203,6 +203,11 @@ export const translations = {
       whatsapp: "Chat su WhatsApp",
       call: "Chiamaci",
       status: "Assistente IA"
+    },
+    notFound: {
+      title: "Pagina non trovata",
+      subtitle: "Spiacenti, la pagina che stai cercando non esiste o è stata spostata.",
+      backHome: "Torna alla Home"
     }
   },
   en: {
@@ -407,6 +412,11 @@ export const translations = {
       whatsapp: "Chat on WhatsApp",
       call: "Call Us",
       status: "AI Assistant"
+    },
+    notFound: {
+      title: "Page Not Found",
+      subtitle: "Sorry, the page you are looking for doesn't exist or has been moved.",
+      backHome: "Back to Home"
     }
   }
 };

@@ -40,6 +40,13 @@ export const SEO: React.FC = () => {
     }
   }
 
+  // 404 Page
+  const is404 = !['/', '/it', '/en', '/blog'].includes(location.pathname) && !slug;
+  if (is404) {
+    title = `${t.notFound.title} | ${siteName}`;
+    description = t.notFound.subtitle;
+  }
+
   // Structured Data for LocalBusiness
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -134,8 +141,8 @@ export const SEO: React.FC = () => {
       </script>
 
       {/* Additional SEO Tags */}
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
+      <meta name="robots" content={is404 ? "noindex, nofollow" : "index, follow"} />
+      <meta name="googlebot" content={is404 ? "noindex, nofollow" : "index, follow"} />
       <meta name="keywords" content="luggage storage rome, roma termini luggage deposit, bag drop rome, secure luggage storage rome, via gioberti 42 luggage" />
     </Helmet>
   );
