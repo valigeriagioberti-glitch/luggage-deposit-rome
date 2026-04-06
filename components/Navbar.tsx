@@ -9,17 +9,17 @@ export const Navbar: React.FC = () => {
   const { t, language, setLanguage } = useLanguage();
   const location = useLocation();
   const navigate = useNavigate();
-  const isHome = location.pathname === '/' || location.pathname === '/it' || location.pathname === '/en';
-  const homePath = language === 'it' ? '/it' : '/';
+  const isHome = location.pathname === '/' || location.pathname === '/it' || location.pathname === '/es' || location.pathname === '/en';
+  const homePath = language === 'it' ? '/it' : language === 'es' ? '/es' : '/';
 
-  const handleLanguageChange = (newLang: 'en' | 'it') => {
+  const handleLanguageChange = (newLang: 'en' | 'it' | 'es') => {
     if (newLang === language) return;
     
     setLanguage(newLang);
     
-    // If on a home-related path, switch between / and /it
+    // If on a home-related path, switch between /, /it, /es
     if (isHome) {
-      navigate(newLang === 'it' ? '/it' : '/');
+      navigate(newLang === 'en' ? '/' : `/${newLang}`);
     }
     // For other pages (like blog), we could add prefixes later if needed
     // For now, we just update the context which updates the UI
@@ -50,7 +50,8 @@ export const Navbar: React.FC = () => {
 
     const languages = [
       { code: 'en', name: 'English', flag: '🇬🇧' },
-      { code: 'it', name: 'Italiano', flag: '🇮🇹' }
+      { code: 'it', name: 'Italiano', flag: '🇮🇹' },
+      { code: 'es', name: 'Español', flag: '🇪🇸' }
     ];
 
     const currentLang = languages.find(l => l.code === language) || languages[0];
@@ -87,7 +88,7 @@ export const Navbar: React.FC = () => {
               <button
                 key={lang.code}
                 onClick={() => {
-                  handleLanguageChange(lang.code as 'en' | 'it');
+                  handleLanguageChange(lang.code as 'en' | 'it' | 'es');
                   setIsDropdownOpen(false);
                 }}
                 className={`w-full text-left px-4 py-2.5 flex items-center justify-between transition-colors ${

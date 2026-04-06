@@ -26,7 +26,7 @@ export enum PricingTier {
   WEEKLY = 'Weekly'
 }
 
-export type Language = 'it' | 'en';
+export type Language = 'it' | 'en' | 'es';
 
 export interface LanguageContextType {
   language: Language;

@@ -418,5 +418,214 @@ export const translations = {
       subtitle: "Sorry, the page you are looking for doesn't exist or has been moved.",
       backHome: "Back to Home"
     }
+  },
+  es: {
+    nav: {
+      howItWorks: "Cómo funciona",
+      pricing: "Precios",
+      reviews: "Reseñas",
+      location: "Ubicación",
+      faq: "Preguntas Frecuentes",
+      blog: "Blog",
+      bookNow: "Reservar Ahora",
+      bookStorage: "Reservar Consigna"
+    },
+    blog: {
+      title: "Blog y Consejos de Viaje",
+      subtitle: "Descubre cómo disfrutar de Roma al máximo con nuestros consejos sobre qué ver y cómo moverse.",
+      readMore: "Leer más",
+      backToList: "Volver al Blog",
+      postedOn: "Publicado el",
+      noPosts: "No se encontraron artículos."
+    },
+    hero: {
+      openEveryDay: "Abierto todos los días",
+      titleStart: "Consigna de equipaje cerca de",
+      titleEnd: "Roma Termini",
+      subtitle: "Deja tus maletas de forma segura a solo 2 minutos de la estación Roma Termini y disfruta de Roma sin preocupaciones. Reserva online en menos de 1 minuto.",
+      ctaBook: "Reservar consigna",
+      ctaFind: "Ver cómo encontrarnos",
+      trust: {
+        rating: "4.8 / 5 en Google",
+        distance: "A 2 min de Termini",
+        cancel: "Cancelación gratuita"
+      },
+      badges: {
+        price: "Desde 5€ al día",
+        security: "Consigna segura y videovigilada"
+      },
+      card: {
+        title: "Luggage Deposit Rome",
+        distanceLabel: "Distancia",
+        distanceValue: "2 minutos a pie",
+        distanceSub: "desde Roma Termini",
+        hoursLabel: "Horario de apertura",
+        hoursValue: "08:30 - 22:30",
+        hoursSub: "Abierto todos los días",
+        securityLabel: "Seguridad",
+        securityValue: "Seguro, Videovigilado",
+        securitySub: "Vigilancia 24/7",
+        bookNote: "Reserva online para garantizar tu plaza.",
+        reserveBtn: "Reservar Ahora"
+      }
+    },
+    stats: {
+      bags: "Más de 10.000 equipajes guardados",
+      distance: "A 2 min de Roma Termini",
+      rating: "Valoración: 4.8 / 5 en Google",
+      support: "Soporte: WhatsApp y en tienda"
+    },
+    services: {
+      title: "Cómo funciona",
+      subtitle: "Sencillo, seguro y rápido. Sin aplicaciones que descargar, solo reserva y deja tu equipaje.",
+      steps: [
+        {
+          title: "1. Reserva Online",
+          desc: "Selecciona tus fechas y número de maletas. Asegura tu espacio en menos de 1 minuto."
+        },
+        {
+          title: "2. Deja tu equipaje",
+          desc: "Muestra tu confirmación en nuestra tienda. Está a solo 2 minutos a pie de la estación."
+        },
+        {
+          title: "3. Disfruta de Roma",
+          desc: "Explora la Ciudad Eterna con las manos libres. Recoge tus maletas cuando quieras."
+        }
+      ]
+    },
+    pricing: {
+      title: "Tarifas fijas asequibles",
+      subtitle: "Paga por maleta, por día. Sin costes adicionales.",
+      from: "desde",
+      day: "/día",
+      choose: "Elegir",
+      popular: "Más Popular",
+      items: [
+        {
+          name: "Equipaje de Mano",
+          price: "5.00€",
+          popular: true,
+          features: ["Tamaño estándar de cabina", "Por día", "Seguro, videovigilado", "Cancelación gratuita"]
+        },
+        {
+          name: "Equipaje Mediano",
+          price: "6.00€",
+          features: ["Maleta mediana", "Por día", "Seguro, videovigilado", "Cancelación gratuita"]
+        },
+        {
+          name: "Equipaje Grande",
+          price: "7.00€",
+          features: ["Maleta grande", "Por día", "Seguro, videovigilado", "Cancelación gratuita"]
+        }
+      ]
+    },
+    booking: {
+      title: "Asegura tu plaza online",
+      subtitle: "Reserva en segundos. Cancelación gratuita.",
+      loadForm: "Iniciar Reserva",
+      loadHint: "Haz clic para abrir el formulario seguro"
+    },
+    location: {
+      title: "Dónde encontrarnos",
+      subtitle: "Estamos ubicados en V. Gioberti 42, a solo 2 minutos de Roma Termini.",
+      loadMap: "Cargar Mapa Interactivo",
+      contactCard: {
+        title: "Contáctanos",
+        addressLabel: "Dirección",
+        directionsLabel: "Indicaciones",
+        directionsText: "Sal de Termini por el lado de la Vía 24. Cruza la calle y baja por Vía Gioberti.",
+        getDirectionsBtn: "Obtener Indicaciones"
+      }
+    },
+    reviews: {
+      title: "Con la confianza de los viajeros",
+      subtitle: "Mira lo que dicen nuestros clientes.",
+      googleReviews: "en Google Reviews",
+      list: [
+        {
+          author: "Darcy O’Shea",
+          date: "22/09/2025",
+          text: "Excelente servicio, personal muy amable y servicial."
+        },
+        {
+          author: "Juan Carlos",
+          date: "22/09/2025",
+          text: "Muy buena opción, servicio rápido y cerca de Termini. Alrededor de 5€ por maleta para todo el día, personal amable, definitivamente recomendado."
+        },
+        {
+          author: "Bridg M",
+          date: "22/09/2025",
+          text: "La primera vez fue fluida y flexible. La segunda vez nos cobraron más de los 5€ por maleta que se muestran en el sitio porque no habíamos reservado con antelación. Genial si reservas con antelación, pero la información de precios parecía poco clara."
+        },
+        {
+          author: "Ahmed Said",
+          date: "22/09/2025",
+          text: "El personal es extremadamente amable y servicial, todo salió a la perfección."
+        },
+        {
+          author: "Ivy Rangwetsi",
+          date: "22/09/2025",
+          text: "Servicio muy rápido, sencillo y conveniente."
+        },
+        {
+          author: "Sebastian Gerlach",
+          date: "21/09/2025",
+          text: "Altamente recomendado. Personal súper amable, muy cerca de Termini y de los autobuses del aeropuerto. Sin problemas, fácil, económico y sin tiempo de espera."
+        },
+        {
+          author: "Zhai Juan",
+          date: "09/09/2025",
+          text: "Servicio fantástico, consigna de equipaje para el día a 5€."
+        }
+      ]
+    },
+    faq: {
+      title: "Preguntas Frecuentes",
+      items: [
+        {
+          q: "¿Necesito reservar con antelación?",
+          a: "Recomendamos encarecidamente reservar online para garantizar su plaza, especialmente durante la temporada alta. Sin embargo, también puede venir y pagar en la tienda si tenemos espacio."
+        },
+        {
+          q: "¿Está seguro mi equipaje?",
+          a: "¡Sí! Nuestras instalaciones son seguras y están monitorizadas por CCTV las 24 horas del día, los 7 días de la semana para garantizar la seguridad de sus pertenencias en todo momento."
+        },
+        {
+          q: "¿Puedo guardar artículos grandes como bicicletas o instrumentos?",
+          a: "Sí, tenemos espacio para artículos de gran tamaño. Consulte la tarifa de 'Equipaje Grande' o contáctenos por WhatsApp para artículos muy específicos."
+        },
+        {
+          q: "¿Qué pasa si llego tarde a recoger mi equipaje?",
+          a: "Estamos abiertos hasta las 22:30. Si llega tarde, contáctenos inmediatamente vía WhatsApp. Las recogidas tardías pueden incurrir en una tarifa adicional o en la recogida al día siguiente."
+        },
+        {
+          q: "¿Puedo cancelar mi reserva?",
+          a: "Sí, las cancelaciones son gratuitas hasta la hora de entrega. Simplemente contáctenos para procesar su reembolso."
+        }
+      ]
+    },
+    footer: {
+      desc: "Consigna de equipaje segura, monitorizada y asequible en el corazón de Roma. La forma inteligente de viajar con las manos libres.",
+      contactTitle: "Contáctanos",
+      linksTitle: "Enlaces Rápidos",
+      findUs: "Encuéntranos",
+      rights: "Todos los derechos reservados.",
+      privacy: "Política de Privacidad",
+      terms: "Términos y Condiciones"
+    },
+    ai: {
+      initialMessage: "¡Hola! Soy tu Conserje Romano. ¡Pregúntame sobre nuestro servicio de equipaje o consejos rápidos de viaje cerca de Termini!",
+      placeholder: "Pregunta sobre la consigna o Roma...",
+      apiMissing: "Falta la clave API. Chat inactivo.",
+      fallback: "¿Necesitas hablar con un humano?",
+      whatsapp: "Chat en WhatsApp",
+      call: "Llámanos",
+      status: "Asistente de IA"
+    },
+    notFound: {
+      title: "Página no encontrada",
+      subtitle: "Lo sentimos, la página que buscas no existe o ha sido movida.",
+      backHome: "Volver al Inicio"
+    }
   }
 };
