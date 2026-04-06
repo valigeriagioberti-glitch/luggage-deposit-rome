@@ -1,10 +1,10 @@
 import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
-import { BUSINESS_INFO, BOOKING_URL } from '../constants';
+import { BUSINESS_INFO, getBookingUrl } from '../constants';
 import { useLanguage } from '../LanguageContext';
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <footer className="bg-dark text-white pt-16 pb-8">
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-lg mb-4">{t.footer.linksTitle}</h4>
             <div className="flex flex-col space-y-2 text-gray-400">
                <a 
-                 href={BOOKING_URL}
+                 href={getBookingUrl(language)}
                  className="hover:text-primary transition-colors cursor-pointer"
                >
                  {t.nav.bookNow}

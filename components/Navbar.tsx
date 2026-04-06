@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
-import { BOOKING_URL } from '../constants';
+import { getBookingUrl } from '../constants';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -35,78 +35,82 @@ export const Navbar: React.FC = () => {
   ];
 
   const LanguageToggle = ({ isMobile = false }: { isMobile?: boolean }) => {
-    if (isMobile) {
-      // Mobile Rectangular Flag Toggle
-      // Container: Soft rounded rectangle, lightweight and compact
-      return (
-        <div className="flex items-center p-1 bg-gray-100 rounded-md border border-gray-200 w-[74px] h-[38px] flex-shrink-0">
-          <button
-            onClick={() => handleLanguageChange('en')}
-            className={`flex-1 h-full flex items-center justify-center rounded-sm transition-all duration-300 ${
-              language === 'en'
-                ? 'bg-white shadow-sm border border-gray-100'
-                : 'bg-transparent'
-            }`}
-            aria-label="Switch to English"
-          >
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" 
-              alt="EN" 
-              className={`w-5 h-auto rounded-[1px] object-cover transition-opacity duration-300 ${language === 'en' ? 'opacity-100' : 'opacity-40 grayscale-[0.2]'}`}
-            />
-          </button>
-          <button
-            onClick={() => handleLanguageChange('it')}
-            className={`flex-1 h-full flex items-center justify-center rounded-sm transition-all duration-300 ${
-              language === 'it'
-                ? 'bg-white shadow-sm border border-gray-100'
-                : 'bg-transparent'
-            }`}
-            aria-label="Passa all'italiano"
-          >
-            <img 
-              src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" 
-              alt="IT" 
-              className={`w-5 h-auto rounded-[1px] object-cover transition-opacity duration-300 ${language === 'it' ? 'opacity-100' : 'opacity-40 grayscale-[0.2]'}`}
-            />
-          </button>
-        </div>
-      );
-    }
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
-    // Desktop Pill Toggle (Updated to use flags)
+    useEffect(() => {
+      const handleClickOutside = (event: MouseEvent) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+          setIsDropdownOpen(false);
+        }
+      };
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, []);
+
+    const languages = [
+      { code: 'en', name: 'English', flag: '🇬🇧' },
+      { code: 'it', name: 'Italiano', flag: '🇮🇹' }
+    ];
+
+    const currentLang = languages.find(l => l.code === language) || languages[0];
+
     return (
-      <div className="flex items-center p-1 bg-gray-100 rounded-full border border-gray-200 shadow-inner flex-shrink-0">
+      <div className="relative" ref={dropdownRef}>
         <button
-          onClick={() => handleLanguageChange('en')}
-          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
-            language === 'en'
-              ? 'bg-white shadow-sm'
-              : 'hover:bg-gray-200'
-          }`}
-          aria-label="Switch to English"
+          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          className={`flex items-center gap-1.5 bg-white border border-gray-200 hover:bg-gray-50 transition-colors rounded-full px-3 py-1.5 shadow-sm ${isMobile ? 'w-full justify-center' : ''}`}
+          aria-label="Select Language"
+          aria-expanded={isDropdownOpen}
         >
-          <img 
-            src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" 
-            alt="EN" 
-            className={`w-4 h-4 rounded-full object-cover transition-opacity duration-300 ${language === 'en' ? 'opacity-100' : 'opacity-40 grayscale-[0.2]'}`}
-          />
+          <span className="text-base leading-none">{currentLang.flag}</span>
+          <svg 
+            className={`w-3.5 h-3.5 text-gray-500 transition-transform duration-200 ${isDropdownOpen ? 'rotate-180' : ''}`} 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
-        <button
-          onClick={() => handleLanguageChange('it')}
-          className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-200 ${
-            language === 'it'
-              ? 'bg-white shadow-sm'
-              : 'hover:bg-gray-200'
+
+        {/* Dropdown Menu */}
+        <div 
+          className={`absolute top-full right-0 mt-2 w-40 bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transition-all duration-200 origin-top-right z-50 ${
+            isDropdownOpen 
+              ? 'opacity-100 transform scale-100 pointer-events-auto' 
+              : 'opacity-0 transform scale-95 pointer-events-none'
           }`}
-          aria-label="Passa all'italiano"
         >
-          <img 
-            src="https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg" 
-            alt="IT" 
-            className={`w-4 h-4 rounded-full object-cover transition-opacity duration-300 ${language === 'it' ? 'opacity-100' : 'opacity-40 grayscale-[0.2]'}`}
-          />
-        </button>
+          <div className="py-1">
+            {languages.map((lang) => (
+              <button
+                key={lang.code}
+                onClick={() => {
+                  handleLanguageChange(lang.code as 'en' | 'it');
+                  setIsDropdownOpen(false);
+                }}
+                className={`w-full text-left px-4 py-2.5 flex items-center justify-between transition-colors ${
+                  language === lang.code 
+                    ? 'bg-gray-50 text-gray-900' 
+                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <span className="text-lg leading-none">{lang.flag}</span>
+                  <span className={`text-sm ${language === lang.code ? 'font-semibold' : 'font-medium'}`}>
+                    {lang.name}
+                  </span>
+                </div>
+                {language === lang.code && (
+                  <svg className="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                  </svg>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
     );
   };
@@ -161,7 +165,7 @@ export const Navbar: React.FC = () => {
             <LanguageToggle />
 
             <a
-              href={BOOKING_URL}
+              href={getBookingUrl(language)}
               className="bg-primary text-white px-4 lg:px-5 py-2 rounded-lg font-semibold text-sm hover:bg-primary-hover transition-all shadow-md hover:shadow-lg"
             >
               {t.nav.bookNow}
@@ -209,7 +213,7 @@ export const Navbar: React.FC = () => {
               )
             ))}
             <a
-              href={BOOKING_URL}
+              href={getBookingUrl(language)}
               onClick={() => setIsOpen(false)}
               className="block w-full text-center mt-4 bg-primary text-white px-3 py-3 rounded-md font-bold text-base shadow-sm"
             >

@@ -1,5 +1,6 @@
 // New External Booking URL
 export const BOOKING_URL = "https://booking.luggagedepositrome.com/";
+export const getBookingUrl = (language: string) => language === 'it' ? "https://booking.luggagedepositrome.com/it" : BOOKING_URL;
 
 // Added missing JOTFORM_ID export
 export const JOTFORM_ID = "230000000000000";

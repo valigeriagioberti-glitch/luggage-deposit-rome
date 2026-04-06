@@ -1,10 +1,10 @@
 import React from 'react';
 import { Check } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
-import { BOOKING_URL } from '../constants';
+import { getBookingUrl } from '../constants';
 
 export const Pricing: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section id="pricing" className="py-20 bg-white">
@@ -51,7 +51,7 @@ export const Pricing: React.FC = () => {
                 </ul>
 
                 <a
-                  href={BOOKING_URL}
+                  href={getBookingUrl(language)}
                   className={`block w-full py-3 px-6 text-center rounded-xl font-bold transition-all ${
                     isPopular 
                       ? 'bg-primary text-white hover:bg-primary-hover shadow-lg shadow-primary/30' 
