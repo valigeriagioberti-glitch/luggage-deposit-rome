@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
 import { blogPosts } from '../data/blogPosts';
@@ -8,7 +8,6 @@ import { blogPosts } from '../data/blogPosts';
 export const SEO: React.FC = () => {
   const { language } = useLanguage();
   const location = useLocation();
-  const { slug } = useParams<{ slug: string }>();
   const t = translations[language];
 
   const siteName = "Luggage Deposit Rome";
@@ -20,28 +19,37 @@ export const SEO: React.FC = () => {
   let imageUrl = "https://cdn.shopify.com/s/files/1/0753/8144/0861/files/cropped-Untitled-design-2025-09-11T094640.576_1.png?v=1765462614&width=160&format=webp";
   let ogType = "website";
 
-  // Blog List Page
-  if (location.pathname === '/blog') {
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  let is404 = false;
+
+  if (pathParts.length === 0 || (pathParts.length === 1 && ['it', 'es', 'en'].includes(pathParts[0]))) {
+    // Home page
+    url = pathParts.length === 0 ? baseUrl : `${baseUrl}/${pathParts[0]}`;
+  } else if (pathParts.length === 1 && pathParts[0] === 'blog') {
+    // Blog List Page
     title = `${t.blog.title} | ${siteName}`;
     description = t.blog.subtitle;
     url = `${baseUrl}/blog`;
-  }
-
-  // Blog Post Page
-  if (slug) {
+  } else if (pathParts.length === 2 && pathParts[0] === 'blog') {
+    // Blog Post Page
+    const slug = pathParts[1];
     const post = blogPosts.find(p => p.slug === slug);
     if (post) {
-      const content = post.translations[language as 'it' | 'en'];
+      const content = post.translations[language as 'it' | 'en' | 'es'] || post.translations['en'];
       title = `${content.title} | ${siteName}`;
       description = content.excerpt;
       url = `${baseUrl}/blog/${slug}`;
       imageUrl = post.image;
       ogType = "article";
+    } else {
+      is404 = true;
     }
+  } else {
+    // Any other path is 404
+    is404 = true;
   }
 
-  // 404 Page
-  const is404 = !['/', '/it', '/en', '/blog'].includes(location.pathname) && !slug;
+  // 404 Page Overrides
   if (is404) {
     title = `${t.notFound.title} | ${siteName}`;
     description = t.notFound.subtitle;

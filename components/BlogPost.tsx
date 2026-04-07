@@ -23,7 +23,7 @@ export const BlogPost: React.FC = () => {
     );
   }
 
-  const content = post.translations[language as 'it' | 'en'];
+  const content = post.translations[language as 'it' | 'en' | 'es'] || post.translations['en'];
 
   // Calculate reading time (approx 200 words per minute)
   const wordCount = content.content.split(/\s+/).length;
