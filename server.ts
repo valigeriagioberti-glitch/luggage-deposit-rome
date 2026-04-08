@@ -3,6 +3,7 @@ import { createServer as createViteServer } from "vite";
 import path from "path";
 import { fileURLToPath } from "url";
 import compression from "compression";
+import fs from "fs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,6 +41,18 @@ async function startServer() {
         }
       }
     }));
+
+    // Custom route for pre-rendered blog posts
+    app.get('/blog/:slug', (req, res, next) => {
+      const slug = req.params.slug;
+      const htmlPath = path.join(distPath, 'blog', `${slug}.html`);
+      
+      if (fs.existsSync(htmlPath)) {
+        res.sendFile(htmlPath);
+      } else {
+        next();
+      }
+    });
 
     app.get('*all', (req, res) => {
       res.sendFile(path.join(distPath, 'index.html'));
