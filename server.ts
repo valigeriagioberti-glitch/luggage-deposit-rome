@@ -28,7 +28,7 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const distPath = path.join(process.cwd(), 'dist');
+    const distPath = path.resolve(process.cwd(), 'dist');
     
     // Set caching headers for static assets
     app.use(express.static(distPath, {
@@ -45,11 +45,25 @@ async function startServer() {
     // Custom route for pre-rendered blog posts
     app.get('/blog/:slug', (req, res, next) => {
       const slug = req.params.slug;
-      const htmlPath = path.join(distPath, 'blog', `${slug}.html`);
+      console.log(`[Blog Route] Requested slug: ${slug}`);
       
-      if (fs.existsSync(htmlPath)) {
-        res.sendFile(htmlPath);
+      const htmlPathA = path.join(distPath, 'blog', `${slug}.html`);
+      const htmlPathB = path.join(distPath, 'blog', slug, 'index.html');
+      
+      const existsA = fs.existsSync(htmlPathA);
+      const existsB = fs.existsSync(htmlPathB);
+      
+      console.log(`[Blog Route] Checking Path A: ${htmlPathA} (Exists: ${existsA})`);
+      console.log(`[Blog Route] Checking Path B: ${htmlPathB} (Exists: ${existsB})`);
+      
+      if (existsA) {
+        console.log(`[Blog Route] Serving Path A`);
+        res.sendFile(htmlPathA);
+      } else if (existsB) {
+        console.log(`[Blog Route] Serving Path B`);
+        res.sendFile(htmlPathB);
       } else {
+        console.log(`[Blog Route] No pre-rendered file found, falling back to SPA`);
         next();
       }
     });
