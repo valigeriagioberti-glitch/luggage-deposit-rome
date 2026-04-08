@@ -1,5 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "https://luggagedepositrome.com/:path*",
+      "destination": "https://www.luggagedepositrome.com/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/blog/:slug",
+      "destination": "/blog/:slug.html"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
