@@ -33,6 +33,7 @@ async function startServer() {
     app.use(express.static(distPath, {
       maxAge: '1y',
       immutable: true,
+      extensions: ['html'],
       setHeaders: (res, path) => {
         if (path.endsWith('.html')) {
           res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
