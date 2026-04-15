@@ -2,8 +2,6 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Home } from './components/Home';
-import { BlogList } from './components/BlogList';
-import { BlogPost } from './components/BlogPost';
 import { ScrollToTop } from './components/ScrollToTop';
 import { LanguageProvider } from './LanguageContext';
 import { SEO } from './components/SEO';
@@ -24,8 +22,6 @@ function App() {
             <Route path="/it" element={<Home />} />
             <Route path="/es" element={<Home />} />
             <Route path="/en" element={<Home />} />
-            <Route path="/blog" element={<BlogList />} />
-            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

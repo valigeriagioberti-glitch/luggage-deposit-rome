@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet-async';
 import { useLocation } from 'react-router-dom';
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../translations';
-import { blogPosts } from '../data/blogPosts';
 
 export const SEO: React.FC = () => {
   const { language } = useLanguage();
@@ -25,25 +24,6 @@ export const SEO: React.FC = () => {
   if (pathParts.length === 0 || (pathParts.length === 1 && ['it', 'es', 'en'].includes(pathParts[0]))) {
     // Home page
     url = pathParts.length === 0 ? baseUrl : `${baseUrl}/${pathParts[0]}`;
-  } else if (pathParts.length === 1 && pathParts[0] === 'blog') {
-    // Blog List Page
-    title = `${t.blog.title} | ${siteName}`;
-    description = t.blog.subtitle;
-    url = `${baseUrl}/blog`;
-  } else if (pathParts.length === 2 && pathParts[0] === 'blog') {
-    // Blog Post Page
-    const slug = pathParts[1];
-    const post = blogPosts.find(p => p.slug === slug);
-    if (post) {
-      const content = post.translations[language as 'it' | 'en' | 'es'] || post.translations['en'];
-      title = `${content.title} | ${siteName}`;
-      description = content.excerpt;
-      url = `${baseUrl}/blog/${slug}`;
-      imageUrl = post.image;
-      ogType = "article";
-    } else {
-      is404 = true;
-    }
   } else {
     // Any other path is 404
     is404 = true;

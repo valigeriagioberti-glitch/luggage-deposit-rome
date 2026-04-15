@@ -31,7 +31,6 @@ export const Navbar: React.FC = () => {
     { name: t.nav.reviews, href: isHome ? '#reviews' : `${homePath}#reviews`, isHash: true },
     { name: t.nav.location, href: isHome ? '#location' : `${homePath}#location`, isHash: true },
     { name: t.nav.faq, href: isHome ? '#faq' : `${homePath}#faq`, isHash: true },
-    { name: t.nav.blog, href: '/blog', isHash: false },
   ];
 
   const LanguageToggle = ({ isMobile = false }: { isMobile?: boolean }) => {
