@@ -28,7 +28,7 @@ export const translations = {
       ctaBook: "Prenota deposito bagagli",
       ctaFind: "Vedi come trovarci",
       trust: {
-        rating: "4.8 / 5 su Google",
+        rating: "4.9 / 5 su Google",
         distance: "2 min da Termini",
         cancel: "Cancellazione gratuita"
       },
@@ -42,7 +42,7 @@ export const translations = {
         distanceValue: "2 minuti a piedi",
         distanceSub: "da Roma Termini",
         hoursLabel: "Orari di apertura",
-        hoursValue: "08:30 - 22:30",
+        hoursValue: "08:30 - 23:00",
         hoursSub: "Aperto tutti i giorni",
         securityLabel: "Sicurezza",
         securityValue: "Sicuro, Videosorvegliato",
@@ -54,7 +54,7 @@ export const translations = {
     stats: {
       bags: "10.000+ bagagli custoditi",
       distance: "2 min da Roma Termini",
-      rating: "Voto: 4.8 / 5 su Google",
+      rating: "Voto: 4.9 / 5 su Google",
       support: "Assistenza: WhatsApp e in negozio"
     },
     services: {
@@ -178,7 +178,7 @@ export const translations = {
         },
         {
           q: "Cosa succede se sono in ritardo per il ritiro?",
-          a: "Siamo aperti fino alle 22:30. Se sei in ritardo, contattaci immediatamente via WhatsApp. I ritiri tardivi potrebbero comportare un costo aggiuntivo o il ritiro il giorno successivo."
+          a: "Siamo aperti fino alle 23:00. Se sei in ritardo, contattaci immediatamente via WhatsApp. I ritiri tardivi potrebbero comportare un costo aggiuntivo o il ritiro il giorno successivo."
         },
         {
           q: "Posso cancellare la mia prenotazione?",
@@ -237,7 +237,7 @@ export const translations = {
       ctaBook: "Book luggage storage",
       ctaFind: "See how to find us",
       trust: {
-        rating: "4.8 / 5 on Google",
+        rating: "4.9 / 5 on Google",
         distance: "2 mins from Termini",
         cancel: "Free cancellation"
       },
@@ -251,7 +251,7 @@ export const translations = {
         distanceValue: "2 minutes walk",
         distanceSub: "from Roma Termini",
         hoursLabel: "Opening Hours",
-        hoursValue: "08:30 - 22:30",
+        hoursValue: "08:30 - 23:00",
         hoursSub: "Open every day",
         securityLabel: "Security",
         securityValue: "Secure, CCTV Monitored",
@@ -263,7 +263,7 @@ export const translations = {
     stats: {
       bags: "10,000+ bags stored safely",
       distance: "2 mins from Roma Termini",
-      rating: "Rating: 4.8 / 5 on Google",
+      rating: "Rating: 4.9 / 5 on Google",
       support: "Support: WhatsApp & in-store"
     },
     services: {
@@ -387,7 +387,7 @@ export const translations = {
         },
         {
           q: "What happens if I'm late to pick up?",
-          a: "We are open until 22:30. If you are running late, please contact us immediately via WhatsApp. Late pickups may incur an additional fee or next-day retrieval."
+          a: "We are open until 23:00. If you are running late, please contact us immediately via WhatsApp. Late pickups may incur an additional fee or next-day retrieval."
         },
         {
           q: "Can I cancel my booking?",
@@ -446,7 +446,7 @@ export const translations = {
       ctaBook: "Reservar consigna",
       ctaFind: "Ver cómo encontrarnos",
       trust: {
-        rating: "4.8 / 5 en Google",
+        rating: "4.9 / 5 en Google",
         distance: "A 2 min de Termini",
         cancel: "Cancelación gratuita"
       },
@@ -460,7 +460,7 @@ export const translations = {
         distanceValue: "2 minutos a pie",
         distanceSub: "desde Roma Termini",
         hoursLabel: "Horario de apertura",
-        hoursValue: "08:30 - 22:30",
+        hoursValue: "08:30 - 23:00",
         hoursSub: "Abierto todos los días",
         securityLabel: "Seguridad",
         securityValue: "Seguro, Videovigilado",
@@ -472,7 +472,7 @@ export const translations = {
     stats: {
       bags: "Más de 10.000 equipajes guardados",
       distance: "A 2 min de Roma Termini",
-      rating: "Valoración: 4.8 / 5 en Google",
+      rating: "Valoración: 4.9 / 5 en Google",
       support: "Soporte: WhatsApp y en tienda"
     },
     services: {
@@ -596,7 +596,7 @@ export const translations = {
         },
         {
           q: "¿Qué pasa si llego tarde a recoger mi equipaje?",
-          a: "Estamos abiertos hasta las 22:30. Si llega tarde, contáctenos inmediatamente vía WhatsApp. Las recogidas tardías pueden incurrir en una tarifa adicional o en la recogida al día siguiente."
+          a: "Estamos abiertos hasta las 23:00. Si llega tarde, contáctenos inmediatamente vía WhatsApp. Las recogidas tardías pueden incurrir en una tarifa adicional o en la recogida al día siguiente."
         },
         {
           q: "¿Puedo cancelar mi reserva?",

@@ -68,7 +68,7 @@ export const SEO: React.FC = () => {
         "Sunday"
       ],
       "opens": "08:30",
-      "closes": "22:30"
+      "closes": "23:00"
     },
     "sameAs": [
       "https://www.facebook.com/luggagedepositrome",
